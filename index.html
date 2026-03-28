@@ -1,227 +1,83 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Atlis Point Aero Group</title>
-  <meta name="description" content="Atlis Point Aero Group delivers mission-ready aviation support with a focus on safety, precision, and operational excellence." />
-  <style>
-    :root{
-      --bg0:#070A12;
-      --bg1:#0B0F1F;
-      --card:rgba(255,255,255,0.06);
-      --card2:rgba(255,255,255,0.04);
-      --border:rgba(255,255,255,0.14);
-      --text:#EAF0FF;
-      --muted:rgba(234,240,255,0.72);
-      --primary:#2E6AF7;
-      --primary2:#00D2FF;
-      --shadow:0 18px 55px rgba(0,0,0,0.45);
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:
-      radial-gradient(1200px 800px at 15% 10%, rgba(46,106,247,0.30), transparent 55%),
-      radial-gradient(900px 650px at 85% 15%, rgba(0,210,255,0.22), transparent 55%),
-      linear-gradient(180deg,var(--bg0),var(--bg1));
-      color:var(--text);
-      overflow-x:hidden;
-    }
-
-    .topbar{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,rgba(5,7,13,0.9),rgba(5,7,13,0));backdrop-filter:blur(12px);}
-    .inner{width:min(1120px, calc(100% - 40px));margin:0 auto;}
-    .topbar .inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
-
-    .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);}
-    .logomark{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--primary2));box-shadow:0 10px 20px rgba(0,0,0,0.35);display:grid;place-items:center;font-weight:800;letter-spacing:-0.03em;}
-    .wordmark{font-size:14px;line-height:1.1;color:var(--muted)}
-    .wordmark strong{color:var(--text);display:block;font-size:16px}
-
-    .nav{display:flex;align-items:center;gap:18px;}
-    .nav a{text-decoration:none;color:var(--muted);font-size:14px;padding:8px 10px;border:1px solid transparent;border-radius:999px;transition:background 0.2s,border-color 0.2s,color 0.2s;}
-    .nav a:hover{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.10);color:var(--text)}
-
-    .hero{padding:64px 0 48px;position:relative;overflow:hidden;}
-    .hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0.9;
-      background:radial-gradient(750px 520px at 20% 30%, rgba(255,255,255,0.08), transparent 50%),
-                 radial-gradient(900px 650px at 90% 30%, rgba(46,106,247,0.16), transparent 60%);
-    }
-    .hero .inner{position:relative}
-    .hero-content{max-width:720px;}
-    .eyebrow{margin:0;color:rgba(234,240,255,0.8);font-weight:700;font-size:13px;letter-spacing:0.08em;text-transform:uppercase}
-    h1{margin:10px 0 14px;font-size:44px;line-height:1.05;letter-spacing:-0.04em}
-    .lede{margin:0 0 22px;color:var(--muted);font-size:16px;line-height:1.6;max-width:72ch}
-
-    .actions{display:flex;flex-wrap:wrap;gap:12px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:12px;border:1px solid var(--border);text-decoration:none;font-weight:700;font-size:14px;cursor:pointer;transition:transform 0.1s ease, background 0.2s ease, border-color 0.2s ease;}
-    .btn:hover{transform:translateY(-1px);}
-    .btn.primary{border:none;background:linear-gradient(135deg,var(--primary),var(--primary2));color:#05070D;box-shadow:var(--shadow)}
-    .btn.primary:hover{filter:brightness(1.08)}
-    .btn.ghost{background:rgba(255,255,255,0.03);color:var(--text);border-color:rgba(255,255,255,0.10)}
-    .btn.ghost:hover{border-color:rgba(255,255,255,0.20)}
-
-    .section{padding:56px 0;background:transparent}
-    .section.slate{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.00));}
-
-    h2{margin:0 0 12px;font-size:24px;letter-spacing:-0.02em}
-    p{margin:0 0 16px;font-size:15px;line-height:1.65;color:var(--muted)}
-
-    .grid3{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:16px;margin-top:14px}
-    .card{border:1px solid var(--border);background:linear-gradient(180deg,var(--card),var(--card2));border-radius:16px;padding:18px;box-shadow:0 14px 40px rgba(0,0,0,0.35)}
-    .card h3{margin:0 0 10px;font-size:18px}
-
-    .split{display:grid;grid-template-columns:1.05fr 0.95fr;gap:24px;align-items:start}
-    .checklist{margin:0;padding:0;list-style:none;display:grid;gap:10px;color:var(--muted)}
-    .checklist li{padding-left:28px;position:relative}
-    .checklist li:before{content:"";width:9px;height:9px;border-radius:3px;background:linear-gradient(135deg,var(--primary),var(--primary2));position:absolute;left:0;top:9px;box-shadow:0 10px 20px rgba(0,0,0,0.35)}
-
-    .form{border:1px solid var(--border);background:linear-gradient(180deg,var(--card),var(--card2));border-radius:18px;padding:18px;box-shadow:0 18px 55px rgba(0,0,0,0.40)}
-    .formTitle{margin:0 0 14px;font-size:18px}
-    .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-    label{display:grid;gap:8px;color:var(--muted);font-size:13px}
-    input, textarea{width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.12);background:rgba(5,7,13,0.55);color:var(--text);padding:10px 12px;font-size:14px;outline:none}
-    textarea{resize:vertical;min-height:120px}
-    input:focus, textarea:focus{border-color:rgba(46,106,247,0.85);box-shadow:0 0 0 4px rgba(46,106,247,0.20)}
-    .status{margin-top:10px;font-size:13px;color:rgba(234,240,255,0.78)}
-    .small{font-size:13px}
-
-    .footer{padding:28px 0;border-top:1px solid rgba(255,255,255,0.10);background:rgba(5,7,13,0.52);backdrop-filter:blur(12px)}
-    .footer .inner{display:flex;align-items:center;justify-content:space-between;gap:16px;color:rgba(234,240,255,0.72);}
-
-    @media (max-width: 920px){
-      h1{font-size:34px}
-      .grid3{grid-template-columns:1fr;}
-      .split{grid-template-columns:1fr;}
-      .row{grid-template-columns:1fr}
-      .nav{gap:10px}
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AtlisPoint Aero Group</title>
+  <meta name="description" content="AtlisPoint Aero Group keeps aviation support clear, disciplined, and reliable.">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <header class="topbar">
-    <div class="inner">
-      <a class="brand" href="#home" aria-label="Atlis Point Aero Group">
-        <span class="logomark" aria-hidden="true">A</span>
-        <span class="wordmark"><strong>Atlis Point</strong>Aero Group</span>
+    <div class="container topbar-grid">
+      <a class="brand" href="index.html" aria-label="AtlisPoint Aero Group home">
+        <span class="brand-mark" aria-hidden="true">AP</span>
+        <span class="brand-text">AtlisPoint</span>
       </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#services">Capabilities</a>
-        <a href="#contact">Contact</a>
+      <nav aria-label="Primary">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="home">
+  <main class="page">
     <section class="hero">
-      <div class="inner">
-        <div class="hero-content">
-          <p class="eyebrow">Mission-ready aviation support</p>
-          <h1>Precision, safety, and reliability in the air and on the ground.</h1>
-          <p class="lede">Atlis Point Aero Group delivers aviation services with a disciplined approach: compliance first, high performance always. Share your requirements and we’ll tailor the support plan.</p>
-          <div class="actions">
-            <a class="btn primary" href="#contact">Request contact</a>
-            <a class="btn ghost" href="#about">Learn more</a>
+      <div class="container hero-grid">
+        <div class="panel">
+          <div class="eyebrow">Precision in transition</div>
+          <h1 class="h1">Aviation support that stays disciplined.</h1>
+          <p class="subhead">We help teams build clean systems: structured execution, quality control, and clear communication—without adding noise.</p>
+          <div class="hero-actions">
+            <a class="btn" href="about.html">Read our approach</a>
+            <a class="btn ghost" href="contact.html">Contact</a>
+          </div>
+
+          <div class="hr"></div>
+
+          <h2>Where we focus</h2>
+          <div class="kpi-grid">
+            <div class="kpi">
+              <b>Structure</b>
+              <span>Goals, owners, and timelines that hold.</span>
+            </div>
+            <div class="kpi">
+              <b>Quality</b>
+              <span>Repeatable checklists and documentation.</span>
+            </div>
+            <div class="kpi">
+              <b>Clarity</b>
+              <span>Updates that reduce risk and guessing.</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section id="about" class="section">
-      <div class="inner">
-        <h2>About</h2>
-        <p>We’re focused on building trust through clean operations and clear communication. The site is intentionally simple—fast, mobile-friendly, and easy to maintain as you grow.</p>
-        <p>As we add pages, we’ll expand into: flight support, maintenance coordination, training, safety programs, and operational manuals.</p>
-      </div>
-    </section>
-
-    <section id="services" class="section slate">
-      <div class="inner">
-        <h2>Capabilities</h2>
-        <div class="grid3">
-          <article class="card">
-            <h3>Operations & compliance</h3>
-            <p>Standardized processes, clear documentation, and readiness for audits/inspections.</p>
-          </article>
-          <article class="card">
-            <h3>Mission support</h3>
-            <p>Planning support designed around logistics, risk, and on-time execution.</p>
-          </article>
-          <article class="card">
-            <h3>Safety culture</h3>
-            <p>Structured reporting, continuous improvement, and accountability across the organization.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="inner split">
-        <div>
-          <h2>Contact</h2>
-          <p class="lede">Send a note and we’ll respond promptly. Include your mission needs, timelines, and any compliance requirements—so we can come prepared.</p>
-          <ul class="checklist" aria-label="Contact guidelines">
-            <li>Preferred ops timeline and location</li>
-            <li>Scope (training / logistics / flight support)</li>
-            <li>Any certification/compliance requirements</li>
-          </ul>
-        </div>
-
-        <form id="contactForm" class="form">
-          <h3 class="formTitle">Send a message</h3>
-          <div class="row">
-            <label for="name">Name
-              <input id="name" name="name" autocomplete="name" required />
-            </label>
-            <label for="email">Email
-              <input id="email" name="email" type="email" autocomplete="email" required />
-            </label>
+        <div class="panel">
+          <h2>Simple next steps</h2>
+          <p>Send what you’re trying to accomplish—timeline, constraints, and what “done” looks like.</p>
+          <div class="panel" style="background: #f8fafc;">
+            <h3>What we need to start</h3>
+            <ul class="list">
+              <li>Desired timeline</li>
+              <li>Scope & priorities</li>
+              <li>Dependencies / vendors</li>
+            </ul>
+            <a class="btn" href="contact.html">Start the conversation</a>
           </div>
-          <label for="company">Company
-            <input id="company" name="company" autocomplete="organization" />
-          </label>
-          <label for="message">Message
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </label>
-          <button class="btn primary" type="submit">Send message</button>
-          <p id="status" class="status" aria-live="polite"></p>
-          <p class="small">Submitting opens your email client and drafts a message to <strong>info@atlispoint.com</strong>.</p>
-        </form>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="inner">
-      <span>© <span id="year"></span> Atlis Point Aero Group</span>
-      <span class="muted">Built on GitHub Pages</span>
+    <div class="container">
+      © <span id="year"></span> AtlisPoint Aero Group · info@atlispoint.com
     </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const company = document.getElementById('company').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      const lines = [];
-      if (name) lines.push(`Name: ${name}`);
-      if (email) lines.push(`Email: ${email}`);
-      if (company) lines.push(`Company: ${company}`);
-      if (message) lines.push('', 'Message:', message);
-      const body = lines.join('\n');
-
-      const mailto = `mailto:info@atlispoint.com?subject=${encodeURIComponent('Atlis Point website inquiry')}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailto;
-      document.getElementById('status').textContent = 'Opening your email client...';
-    });
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
