@@ -1,0 +1,204 @@
+/* AtlisPoint Aero Group - base styles */
+:root{
+  --bg0:#070A10;
+  --bg1:#0B1423;
+  --card: rgba(255,255,255,0.06);
+  --card2: rgba(255,255,255,0.10);
+  --text:#E9EEF3;
+  --muted: rgba(233,238,243,0.72);
+  --border: rgba(255,255,255,0.12);
+  --shadow: rgba(0,0,0,0.45);
+  --accent:#00B5E2;
+  --accent2:#72FFDA;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color:var(--text);
+  background:
+    radial-gradient(1000px 600px at 15% 0%, rgba(114,255,218,0.10), transparent 55%),
+    radial-gradient(800px 500px at 85% 15%, rgba(0,181,226,0.14), transparent 60%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+}
+a{color:inherit}
+
+.container{width:min(1100px, calc(100% - 40px)); margin:0 auto}
+
+/* Header */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(180deg, rgba(10,12,18,0.85), rgba(10,12,18,0.35));
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+  gap:14px;
+}
+.brand{
+  font-weight:650;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.brand-badge{
+  width:32px; height:32px;
+  border-radius:10px;
+  background: linear-gradient(135deg, rgba(0,181,226,0.95), rgba(114,255,218,0.90));
+  box-shadow: 0 10px 30px rgba(0,181,226,0.20);
+}
+.brand span{color:rgba(233,238,243,0.92)}
+
+.nav-links{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.nav-links a{
+  padding:9px 12px;
+  border-radius:10px;
+  text-decoration:none;
+  color:rgba(233,238,243,0.86);
+  border:1px solid transparent;
+  transition: transform .15s ease, background .15s ease, border .15s ease;
+}
+.nav-links a:hover{transform: translateY(-1px); background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08)}
+.nav-links .active{background: rgba(0,181,226,0.14); border-color: rgba(0,181,226,0.35)}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:11px 14px;
+  border-radius:12px;
+  border:1px solid rgba(0,181,226,0.45);
+  background: linear-gradient(135deg, rgba(0,181,226,0.25), rgba(114,255,218,0.12));
+  color:rgba(233,238,243,0.95);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  text-decoration:none;
+  transition: transform .15s ease, filter .15s ease;
+}
+.btn:hover{transform: translateY(-1px); filter: brightness(1.05)}
+
+main{padding: 34px 0 60px}
+section{padding: 54px 0}
+.section-top{margin-top: 30px}
+
+/* hero */
+.hero{
+  padding: 36px 0 18px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 18px;
+  align-items:stretch;
+}
+@media (max-width: 940px){.hero-grid{grid-template-columns:1fr}}
+
+.hero-card{
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 26px 70px var(--shadow);
+  overflow:hidden;
+  position:relative;
+}
+.hero-card::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: radial-gradient(700px 300px at 25% 10%, rgba(0,181,226,0.18), transparent 60%),
+              radial-gradient(800px 350px at 90% 35%, rgba(114,255,218,0.20), transparent 55%);
+  pointer-events:none;
+}
+.hero-card-inner{position:relative; padding: 26px 24px 30px}
+
+.eyebrow{font-size: 12px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(233,238,243,0.78)}
+.h1{font-size: 42px; line-height:1.05; margin: 12px 0 10px}
+@media (max-width: 540px){.h1{font-size: 36px}}
+.subhead{margin:0 0 16px; color:var(--muted); max-width: 58ch; line-height:1.5}
+
+.hero-row{display:flex; flex-wrap:wrap; gap: 12px; align-items:center}
+
+.kpi-grid{
+  margin-top: 16px;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+}
+.kpi{
+  border-radius: 16px;
+  padding: 12px 12px;
+  background: rgba(0,0,0,0.20);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+.kpi b{display:block; font-size: 16px; margin-bottom: 2px}
+.kpi span{color:var(--muted); font-size: 14px}
+
+.card-list{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.card{
+  border-radius: 18px;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 14px 14px;
+}
+.card b{display:block; margin-bottom: 6px}
+.card p{margin:0; color:var(--muted); line-height:1.5}
+
+.hr{height:1px; background: rgba(255,255,255,0.10); margin: 30px 0}
+
+/* two column sections */
+.split{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 940px){.split{grid-template-columns:1fr}}
+
+.panel{
+  border-radius: 18px;
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+  border:1px solid rgba(255,255,255,0.10);
+}
+.panel h2{margin-top:0; margin-bottom:10px}
+.panel p{margin-top:0; margin-bottom:10px; color:var(--muted)}
+
+/* contact form */
+.form{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.field{display:grid; gap:6px}
+label{color:rgba(233,238,243,0.78); font-size: 13px; letter-spacing:0.04em; text-transform:uppercase}
+input, textarea{
+  width:100%;
+  border-radius: 12px;
+  padding: 12px 12px;
+  border:1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.24);
+  color:var(--text);
+  outline:none;
+  font-size: 15px;
+}
+input:focus, textarea:focus{border-color: rgba(0,181,226,0.55); box-shadow: 0 0 0 4px rgba(0,181,226,0.12)}
+textarea{min-height: 120px; resize: vertical}
+
+.footer{
+  padding: 22px 0;
+  border-top:1px solid rgba(255,255,255,0.10);
+  color:rgba(233,238,243,0.65);
+  background: rgba(0,0,0,0.18);
+  text-align:center;
+}
