@@ -306,3 +306,10 @@ label{color:rgba(11,15,25,.7);}
 /* Tactical imagery + larger logo */
 
 .brand-logo{width:280px;height:auto;max-width:60vw;}
+
+/* AtlisPoint tactical imagery */
+.hero::before{
+  background:linear-gradient(to top, rgba(11,11,13,.86), rgba(11,11,13,.35)),
+             url('airliner sunset.jpg') center/cover no-repeat;
+}
+.brand-logo{width:300px;max-width:65vw;height:auto;}
