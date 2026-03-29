@@ -313,3 +313,14 @@ label{color:rgba(11,15,25,.7);}
              url('airliner sunset.jpg') center/cover no-repeat;
 }
 .brand-logo{width:300px;max-width:65vw;height:auto;}
+
+/* AtlisPoint imagery overrides */
+.hero::before{
+  background: linear-gradient(to top, rgba(11,11,13,.82), rgba(11,11,13,.45)),
+              url('airliner sunset.jpg') center/cover no-repeat;
+}
+.brand-logo{
+  width: 320px;
+  height: auto;
+  max-width: min(320px, 70vw);
+}
