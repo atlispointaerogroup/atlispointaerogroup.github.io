@@ -1,67 +1,29 @@
-/* =============================================
-   IMAGE GUIDE â€” use these free Unsplash URLs
-   -----------------------------------------------
-   HERO (replace 'airliner-sunset.jpg'):
-   https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1800&q=85&auto=format&fit=crop
-
-   IMAGE BLOCK 1:
-   https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=1100&q=85&auto=format&fit=crop
-
-   IMAGE BLOCK 2:
-   https://images.unsplash.com/photo-1542296332-2e4473faf563?w=1100&q=85&auto=format&fit=crop
-
-   IMAGE BLOCK 3 (lounge / interior):
-   https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=1100&q=85&auto=format&fit=crop
-
-   WHY YOUR OLD IMAGES WERE GRAINY:
-   - background-size:cover stretches a small file across a large area
-   - Retina screens need images at 2x their displayed pixel width
-   - Always add ?w=[2x the container width in px] to any Unsplash URL
-   ============================================= */
-
-/* =============================================
-   GLOBAL RESET
-   ============================================= */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* =============================================
-   DESIGN TOKENS
-   ============================================= */
 :root {
-  --navy:        #0b1a35;
-  --navy-mid:    #132241;
-  --gold:        #c9a84c;
-  --gold-light:  #e8c97a;
-  --cream:       #faf8f3;
-  --white:       #ffffff;
-
-  /* Text â€” boosted contrast from original #555 */
-  --text-primary:   #0d1117;
-  --text-body:      #374151;   /* was #555 â€” much darker, WCAG AA on white */
-  --text-muted:     #6b7280;
-  --text-on-dark:   #f0ede6;
-  --text-on-dark-2: #c5bfa8;
-
-  --bg:          #ffffff;
-  --bg-tinted:   #faf8f3;
-  --border:      #e0ddd6;
-
-  --transition:  0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --charcoal:     #1c1c1c;
+  --charcoal-mid: #2d2d2d;
+  --text:         #1a1a1a;
+  --text-body:    #4a4a4a;
+  --text-muted:   #888888;
+  --text-light:   #d4d4d4;
+  --text-xlight:  #f0f0f0;
+  --bg:           #ffffff;
+  --bg-off:       #f7f7f7;
+  --border:       #e3e3e3;
+  --transition:   0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* =============================================
-   BASE
-   ============================================= */
 html { scroll-behavior: smooth; }
 
 body {
   font-family: "Georgia", "Times New Roman", serif;
   background: var(--bg);
-  color: var(--text-primary);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -69,67 +31,58 @@ body {
 }
 
 a {
-  color: var(--navy);
+  color: var(--text);
   text-decoration: none;
   transition: color var(--transition);
 }
 
-a:hover { color: var(--gold); }
+a:hover { color: var(--text-muted); }
 
-/* =============================================
-   TYPOGRAPHY
-   ============================================= */
 h1 {
   font-family: "Georgia", serif;
-  font-size: clamp(40px, 6vw, 68px);
+  font-size: clamp(38px, 5.5vw, 64px);
   font-weight: 700;
   letter-spacing: -1.5px;
   line-height: 1.08;
-  color: var(--white);
+  color: #ffffff;
 }
 
 h2 {
-  font-size: clamp(28px, 3.5vw, 40px);
+  font-size: clamp(24px, 3vw, 36px);
   font-weight: 700;
   letter-spacing: -0.5px;
-  color: var(--text-primary);
+  color: var(--text);
   line-height: 1.2;
+  margin-bottom: 12px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 700;
-  letter-spacing: -0.2px;
-  color: var(--text-primary);   /* was inheriting faint gray â€” now solid */
+  color: var(--text);
   line-height: 1.3;
+  margin-bottom: 10px;
 }
 
 p {
   font-size: 16px;
   line-height: 1.75;
-  color: var(--text-body);      /* was #555 â€” now #374151, far more legible */
+  color: var(--text-body);
 }
 
-/* =============================================
-   LAYOUT
-   ============================================= */
 .container {
   width: 1100px;
   max-width: calc(100% - 40px);
   margin: auto;
 }
 
-/* =============================================
-   HEADER â€” dark, sticky, glassmorphism tint
-   ============================================= */
+/* HEADER */
 header {
-  background: var(--navy);
+  background: var(--charcoal);
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .topbar {
@@ -143,15 +96,11 @@ header {
 .brand { display: flex; align-items: center; gap: 16px; }
 
 .brand-logo {
-  width: 220px;
+  width: 200px;
   max-width: 100%;
   height: auto;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  filter: brightness(0) invert(1);
 }
-
-/* If your logo is dark-on-white, uncomment this: */
-/* .brand-logo { filter: brightness(0) invert(1); } */
 
 .nav { display: flex; gap: 32px; align-items: center; }
 
@@ -159,7 +108,7 @@ header {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: var(--text-on-dark-2);
+  color: var(--text-light);
   letter-spacing: 1px;
   text-transform: uppercase;
   position: relative;
@@ -174,50 +123,44 @@ header {
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--gold);
+  background: #ffffff;
   transition: width var(--transition);
 }
 
-.nav a:hover { color: var(--gold-light); }
+.nav a:hover { color: #ffffff; }
 .nav a:hover::after { width: 100%; }
 
-/* =============================================
-   HERO â€” cinematic, sharp, animated text
-   Fix: use the 1800px Unsplash URL above for zero grain
-   ============================================= */
+/* HERO */
 .hero {
-  height: 620px;
+  height: 640px;
   display: flex;
   align-items: center;
-  color: var(--white);
+  color: #ffffff;
   position: relative;
   overflow: hidden;
-
   background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1800&q=85&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: scroll; /* NOT fixed â€” causes iOS blur */
+  background-attachment: scroll;
 }
 
-/* Dark-left + bottom vignette overlay */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to right, rgba(11,26,53,0.82) 0%, rgba(11,26,53,0.3) 60%, transparent 100%),
+    linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.35) 60%, transparent 100%),
     linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 40%);
   z-index: 1;
 }
 
-/* Decorative gold left stripe */
 .hero::after {
   content: '';
   position: absolute;
   left: 0; top: 0; bottom: 0;
   width: 3px;
-  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  background: linear-gradient(to bottom, transparent, #ffffff, transparent);
   z-index: 2;
 }
 
@@ -226,15 +169,15 @@ header {
   z-index: 3;
 }
 
-/* Staggered entrance animations */
 .hero-inner h1 {
   animation: fadeUp 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .hero-inner p {
-  color: var(--text-on-dark-2);
+  color: var(--text-light);
   font-size: 18px;
   margin-top: 14px;
+  max-width: 520px;
   animation: fadeUp 0.9s 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
@@ -251,14 +194,12 @@ header {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* =============================================
-   BUTTONS
-   ============================================= */
-button, .btn {
+/* BUTTONS */
+.btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 28px;
+  padding: 14px 30px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 13px;
   font-weight: 700;
@@ -270,56 +211,50 @@ button, .btn {
   transition: all var(--transition);
   position: relative;
   overflow: hidden;
-  background: var(--gold);
-  color: var(--navy);
 }
 
-/* Shimmer sweep on hover */
-button::before, .btn::before {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s ease;
+.btn-primary {
+  background: #ffffff;
+  color: var(--charcoal);
 }
 
-button:hover::before, .btn:hover::before { left: 100%; }
-
-button:hover, .btn-primary:hover {
-  background: var(--gold-light);
+.btn-primary:hover {
+  background: var(--text-xlight);
+  color: var(--charcoal);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.4);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
-
-button:active, .btn:active { transform: translateY(0); }
 
 .btn-ghost {
   background: transparent;
-  color: var(--white);
-  border: 1px solid rgba(255,255,255,0.45);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.5);
 }
 
 .btn-ghost:hover {
   background: rgba(255,255,255,0.1);
-  border-color: var(--white);
+  border-color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: none;
 }
 
-/* =============================================
-   SECTION
-   ============================================= */
+.btn-dark {
+  background: var(--charcoal);
+  color: #ffffff;
+}
+
+.btn-dark:hover {
+  background: var(--charcoal-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* SECTIONS */
 .section { padding: 90px 0; }
-.section--tinted { background: var(--bg-tinted); }
-.section--dark { background: var(--navy); }
+.section--grey { background: var(--bg-off); }
+.section--dark { background: var(--charcoal); }
+.section--dark h2, .section--dark h3 { color: #ffffff; }
+.section--dark p { color: var(--text-light); }
 
-.section--dark h2,
-.section--dark h3 { color: var(--text-on-dark); }
-
-.section--dark p { color: var(--text-on-dark-2); }
-
-/* Gold eyebrow label above headings */
 .section-label {
   display: inline-block;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -327,13 +262,56 @@ button:active, .btn:active { transform: translateY(0); }
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  display: block;
 }
 
-/* =============================================
-   GRID & CARDS
-   ============================================= */
+.section-heading {
+  margin-bottom: 48px;
+}
+
+/* STATS STRIP */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.stat-item {
+  background: var(--bg);
+  padding: 40px 24px;
+  text-align: center;
+  transition: background var(--transition);
+}
+
+.stat-item:hover { background: var(--bg-off); }
+
+.stat-number {
+  font-family: "Georgia", serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: -1px;
+  line-height: 1;
+  display: block;
+}
+
+.stat-label {
+  display: block;
+  margin-top: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* GRID & CARDS */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -350,7 +328,7 @@ button:active, .btn:active { transform: translateY(0); }
 
 .card {
   border: 1px solid var(--border);
-  background: var(--white);
+  background: var(--bg);
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
   display: flex;
   flex-direction: column;
@@ -358,13 +336,12 @@ button:active, .btn:active { transform: translateY(0); }
   position: relative;
 }
 
-/* Gold accent bar that sweeps in on hover */
 .card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: var(--gold);
+  background: var(--charcoal);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--transition);
@@ -372,88 +349,87 @@ button:active, .btn:active { transform: translateY(0); }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 24px 64px rgba(11, 26, 53, 0.13);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.1);
   border-color: transparent;
 }
 
 .card:hover::before { transform: scaleX(1); }
 
 .card-body {
-  padding: 32px;
+  padding: 36px 32px;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* =============================================
-   IMAGE BLOCK
-   Fix: explicit width + zoom-on-hover
-   Use the 1100px Unsplash URLs from the guide above
-   ============================================= */
+.card-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* IMAGE BLOCK */
 .image-block {
   display: block;
   width: 100%;
-  height: 360px;
+  height: 480px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
   position: relative;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Zoom on parent card hover */
-.card:hover .image-block {
-  transform: scale(1.04);
+/* DARK HERO VARIANT (for inner pages) */
+.page-hero {
+  background: var(--charcoal);
+  padding: 90px 0 80px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Overlay gradient that fades in on hover */
-.image-block::after {
+.page-hero::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(11,26,53,0.4) 0%, transparent 55%);
-  opacity: 0;
-  transition: opacity var(--transition);
-  pointer-events: none;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #ffffff, transparent);
 }
 
-.card:hover .image-block::after { opacity: 1; }
+.page-hero h1 {
+  font-size: clamp(36px, 5vw, 58px);
+  color: #ffffff;
+  margin-bottom: 16px;
+}
 
-/* =============================================
-   STATS STRIP
-   ============================================= */
-.stats-strip {
+.page-hero p {
+  color: var(--text-light);
+  font-size: 18px;
+  max-width: 580px;
+  line-height: 1.7;
+}
+
+/* CONTACT PAGE */
+.contact-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
 }
 
-.stat-item {
-  background: var(--white);
-  padding: 36px 24px;
-  text-align: center;
-  transition: background var(--transition);
+.contact-info h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
-.stat-item:hover { background: var(--bg-tinted); }
-
-.stat-number {
-  font-family: "Georgia", serif;
-  font-size: 40px;
-  font-weight: 700;
-  color: var(--navy);
-  letter-spacing: -1px;
-  line-height: 1;
-  display: block;
+.contact-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 28px;
 }
 
-.stat-label {
-  display: block;
-  margin-top: 6px;
+.contact-detail .label {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 11px;
   font-weight: 700;
@@ -462,11 +438,19 @@ button:active, .btn:active { transform: translateY(0); }
   color: var(--text-muted);
 }
 
-/* =============================================
-   CONTACT FORM
-   Fix: no overflow, proper styling
-   ============================================= */
-.form-group { margin-bottom: 16px; }
+.contact-detail a {
+  font-size: 17px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.contact-detail a:hover { color: var(--text-muted); }
+
+.divider-line {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
 
 form label {
   display: block;
@@ -476,21 +460,22 @@ form label {
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 6px;
+  margin-bottom: 7px;
 }
 
 form input,
 form textarea {
   display: block;
-  width: 100%;          /* safe â€” box-sizing:border-box from global reset */
+  width: 100%;
   padding: 13px 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 16px;      /* prevents iOS auto-zoom â€” must stay >=16px */
-  color: var(--text-primary);
-  background: var(--white);
+  font-size: 16px;
+  color: var(--text);
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 2px;
   outline: none;
+  margin-bottom: 20px;
   transition: border-color var(--transition), box-shadow var(--transition);
   -webkit-appearance: none;
   appearance: none;
@@ -498,8 +483,8 @@ form textarea {
 
 form input:focus,
 form textarea:focus {
-  border-color: var(--navy);
-  box-shadow: 0 0 0 3px rgba(11, 26, 53, 0.08);
+  border-color: var(--charcoal);
+  box-shadow: 0 0 0 3px rgba(28,28,28,0.08);
 }
 
 form input::placeholder,
@@ -510,27 +495,16 @@ form textarea::placeholder {
 
 form textarea {
   resize: vertical;
-  min-height: 130px;
+  min-height: 140px;
 }
 
-/* =============================================
-   SCROLL REVEAL ANIMATION
-   Add class="reveal" to .section or .card elements.
-   Then paste this JS before </body>:
+.form-hint {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
 
-   <script>
-     const io = new IntersectionObserver(
-       entries => entries.forEach(e => {
-         if (e.isIntersecting) {
-           e.target.classList.add('visible');
-           io.unobserve(e.target);
-         }
-       }),
-       { threshold: 0.1 }
-     );
-     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-   </script>
-   ============================================= */
+/* SCROLL REVEAL */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -542,77 +516,51 @@ form textarea {
   transform: translateY(0);
 }
 
-/* Staggered cards â€” add reveal-1 through reveal-4 for delay */
 .reveal-1 { transition-delay: 0.05s; }
 .reveal-2 { transition-delay: 0.15s; }
 .reveal-3 { transition-delay: 0.25s; }
 .reveal-4 { transition-delay: 0.35s; }
 
-/* Accessibility: no animations if user prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }
-  .hero-inner h1,
-  .hero-inner p,
-  .hero-inner .cta-group { animation: none; }
+  .hero-inner h1, .hero-inner p, .hero-inner .cta-group { animation: none; }
 }
 
-/* =============================================
-   FOOTER
-   ============================================= */
+/* FOOTER */
 footer {
-  background: var(--navy);
-  color: var(--text-on-dark-2);
-  padding: 48px 0 32px;
+  background: var(--charcoal);
+  color: var(--text-muted);
+  padding: 40px 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
+  text-align: center;
 }
 
-footer a { color: var(--text-on-dark-2); transition: color var(--transition); }
-footer a:hover { color: var(--gold-light); }
+footer a { color: var(--text-muted); transition: color var(--transition); }
+footer a:hover { color: var(--text-light); }
 
-/* =============================================
-   RESPONSIVE â€” TABLET 900px
-   ============================================= */
+/* RESPONSIVE — TABLET */
 @media (max-width: 900px) {
-  .hero { height: 520px; }
-  .brand-logo { width: 180px; }
+  .hero { height: 540px; }
   .grid-3 { grid-template-columns: 1fr 1fr; }
   .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
 }
 
-/* =============================================
-   RESPONSIVE â€” MOBILE 640px
-   ============================================= */
+/* RESPONSIVE — MOBILE */
 @media (max-width: 640px) {
   .container { max-width: calc(100% - 32px); }
-
   .topbar { flex-wrap: wrap; padding: 14px 0; gap: 10px; }
   .nav { gap: 18px; flex-wrap: wrap; }
   .nav a { font-size: 12px; }
   .brand-logo { width: 150px; }
-
-  .hero {
-    height: auto;
-    min-height: 420px;
-    padding: 72px 0 56px;
-    background-position: 65% center; /* keep aircraft visible in portrait */
-  }
-
+  .hero { height: auto; min-height: 440px; padding: 80px 0 60px; background-position: 65% center; }
   .hero-inner p { font-size: 16px; }
-
-  .hero-inner .cta-group {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .grid,
-  .grid-3 { grid-template-columns: 1fr; gap: 20px; }
-
+  .hero-inner .cta-group { flex-direction: column; align-items: flex-start; }
+  .grid, .grid-3 { grid-template-columns: 1fr; gap: 20px; }
   .stats-strip { grid-template-columns: repeat(2, 1fr); }
-
-  .image-block { height: 240px; }
-
+  .image-block { height: 280px; }
   .section { padding: 60px 0; }
-
-  button, .btn { width: 100%; justify-content: center; }
+  .page-hero { padding: 60px 0; }
+  .btn { width: 100%; justify-content: center; }
 }
