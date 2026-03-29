@@ -1,134 +1,291 @@
-:root{
-  --bg:#ffffff;
-  --text:#0b0f19;
-  --muted:#5a6475;
-  --border:#e6e9ef;
+/* =============================================
+   GLOBAL RESET & BOX MODEL
+   Fix: form inputs overflowing + cards misaligned
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box; /* Prevents padding from pushing elements outside their container */
 }
 
-body{
-  margin:0;
+:root {
+  --bg: #ffffff;
+  --text: #0b0f19;
+  --muted: #5a6475;
+  --border: #e6e9ef;
+}
+
+body {
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
-  background:#ffffff;
-  color:var(--text);
+  background: #ffffff;
+  color: var(--text);
+
+  /* Fix: jagged/blurry text on macOS + retina screens */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* NAV */
-header{
-  border-bottom:1px solid var(--border);
-  background:#fff;
+/* =============================================
+   NAV
+   ============================================= */
+header {
+  border-bottom: 1px solid var(--border);
+  background: #fff;
 }
 
-.container{
-  width:1100px;
-  max-width:calc(100% - 40px);
-  margin:auto;
+.container {
+  width: 1100px;
+  max-width: calc(100% - 40px);
+  margin: auto;
 }
 
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 0;
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:16px;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.brand-logo{
-  width:260px;
+.brand-logo {
+  width: 260px;
+
+  /* Fix: logo grain — render logo crisp, never scale it blurry */
+  max-width: 100%;
+  image-rendering: -webkit-optimize-contrast; /* Safari */
+  image-rendering: crisp-edges;               /* Firefox */
 }
 
-.nav a{
-  font-weight:500;
-  color:#222;
-  letter-spacing:.3px;
+.nav a {
+  font-weight: 500;
+  color: #222;
+  letter-spacing: .3px;
 }
 
-/* HERO */
-.hero{
-  height:560px;
-  display:flex;
-  align-items:center;
-  color:#fff;
-  position:relative;
-  background:url('airliner-sunset.jpg') center/cover no-repeat;
+/* =============================================
+   HERO
+   Fix: grainy background image
+   ============================================= */
+.hero {
+  height: 560px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  position: relative;
+
+  background-image: url('airliner-sunset.jpg');
+  background-size: cover;       /* Was already correct — kept */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* Fix: 'fixed' causes blur/grain on iOS — use scroll */
+
+  /*
+    Fix: GPU compositing grain.
+    DO NOT use will-change: transform here — it forces a new compositing
+    layer which degrades image quality on many browsers. Leave it off.
+  */
 }
 
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to right, rgba(0,0,0,.65), rgba(0,0,0,.2));
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,.65), rgba(0,0,0,.2));
 }
 
-.hero-inner{
-  position:relative;
-  z-index:2;
+.hero-inner {
+  position: relative;
+  z-index: 2;
 }
 
-/* SECTION */
-.section{
-  padding:80px 0;
+/* =============================================
+   SECTION
+   ============================================= */
+.section {
+  padding: 80px 0;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
+/* =============================================
+   GRID & CARDS
+   Fix: cards misaligned — use align-items: stretch
+   so all cards in a row are the same height
+   ============================================= */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: stretch; /* Fix: cards now match height within each row */
 }
 
-.card{
-  border:1px solid #e6e9ef;
-  padding:32px;
-  background:#fff;
-  transition:all .25s ease;
+.card {
+  border: 1px solid #e6e9ef;
+  padding: 32px;
+  background: #fff;
+  transition: transform .25s ease, box-shadow .25s ease; /* Fix: only transition what's needed */
+  display: flex;           /* Fix: inner content aligns consistently */
+  flex-direction: column;
 }
 
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 60px rgba(0,0,0,.08);
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,.08);
 }
 
-/* IMAGE BLOCK */
-.image-block{
-  height:420px;
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
+/* =============================================
+   IMAGE BLOCK
+   Fix: grainy background images
+   ============================================= */
+.image-block {
+  height: 420px;
+  width: 100%;              /* Fix: was missing — block collapsed without explicit width */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /*
+    Fix: image grain from subpixel rendering.
+    Avoid applying transform or filter to this element —
+    both trigger compositing that degrades raster quality.
+    Instead, serve images at 2× their display size for retina screens,
+    e.g. if .image-block is 555px wide, serve a 1110px-wide image.
+  */
+  display: block;
+  overflow: hidden;         /* Ensures nothing bleeds past rounded corners if added later */
 }
 
-/* CONTACT */
-form input, form textarea{
-  width:100%;
-  padding:12px;
-  margin-bottom:12px;
-  border:1px solid var(--border);
+/* =============================================
+   CONTACT FORM
+   Fix: inputs overflowing container
+   (box-sizing: border-box above already fixes this,
+    but we also remove the raw width:100% + padding conflict explicitly)
+   ============================================= */
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  /* box-sizing is now inherited from the global rule above */
+  font-family: inherit;     /* Fix: inputs defaulting to browser monospace */
+  font-size: 16px;          /* Fix: prevents iOS auto-zoom on focus (must be ≥16px) */
+  display: block;           /* Fix: inline inputs ignore top/bottom margin */
+  border-radius: 0;         /* Fix: iOS adds rounded corners by default */
+  -webkit-appearance: none; /* Fix: iOS adds inset shadow on inputs */
 }
 
-button{
-  padding:14px;
-  background:#000;
-  color:#fff;
-  border:none;
-  cursor:pointer;
+form textarea {
+  resize: vertical;         /* Allow vertical resize only — horizontal breaks layout */
+  min-height: 120px;
 }
 
-h1{
-  font-size:64px;
-  letter-spacing:-1px;
-  font-weight:700;
+button {
+  padding: 14px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
 }
 
-h3{
-  font-size:22px;
-  font-weight:600;
+/* =============================================
+   TYPOGRAPHY
+   ============================================= */
+h1 {
+  font-size: 64px;
+  letter-spacing: -1px;
+  font-weight: 700;
+  line-height: 1.1;
 }
 
-p{
-  font-size:16px;
-  line-height:1.6;
-  color:#555;
+h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* =============================================
+   RESPONSIVE — MOBILE
+   Fix: mobile layout broken
+   ============================================= */
+
+/* Tablet: shrink hero text, ease the grid */
+@media (max-width: 900px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  .hero {
+    height: 460px;
+  }
+
+  .brand-logo {
+    width: 200px;
+  }
+}
+
+/* Mobile: stack everything single column */
+@media (max-width: 640px) {
+  .container {
+    max-width: calc(100% - 32px);
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .nav {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .brand-logo {
+    width: 160px;
+  }
+
+  .hero {
+    height: auto;
+    min-height: 360px;
+    padding: 48px 0;
+
+    /* Fix: background-size:cover on short mobile heroes can over-crop.
+       Use a top-biased position for portrait images. */
+    background-position: center top;
+  }
+
+  h1 {
+    font-size: 36px;
+    letter-spacing: -.5px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* Stack cards vertically on mobile */
+    gap: 20px;
+  }
+
+  .image-block {
+    height: 260px; /* Shorter on mobile so images aren't over-cropped */
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  button {
+    width: 100%;
+  }
 }
