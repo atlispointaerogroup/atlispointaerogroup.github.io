@@ -1,15 +1,18 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <title>About - AtlisPoint</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — AtlisPoint Aero Group</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
   <div class="container topbar">
-    <img src="transparent-logo.png" class="brand-logo">
+    <div class="brand">
+      <img src="transparent-logo.png" class="brand-logo">
+    </div>
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -19,15 +22,75 @@
   </div>
 </header>
 
-<section class="section">
+<div class="page-hero">
   <div class="container">
-    <h1>About</h1>
-    <p>AtlisPoint Aero Group specializes in aviation asset recovery, logistics, and operational transitions.</p>
+    <h1>About AtlisPoint</h1>
+    <p>We are a specialist aviation services firm focused on asset recovery, logistics, and operational transitions for a global client base.</p>
+  </div>
+</div>
+
+<section class="section reveal">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <span class="section-label">Who We Are</span>
+        <h2>Built for complex aviation environments</h2>
+        <p style="margin-bottom: 16px;">AtlisPoint Aero Group was founded by aviation professionals with deep experience in aircraft operations, regulatory compliance, and asset management. We work where others won't — across jurisdictions, time zones, and operational constraints.</p>
+        <p style="margin-bottom: 16px;">Our team brings together pilots, technical specialists, and logistics coordinators who have executed hundreds of aircraft movements across six continents.</p>
+        <p>We operate with a single standard: every engagement is handled with the same precision and accountability we would expect if it were our own asset.</p>
+      </div>
+      <div>
+        <span class="section-label">Our Focus</span>
+        <h2>Three core disciplines</h2>
+        <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 8px;">
+          <div style="border-left: 2px solid var(--charcoal); padding-left: 20px;">
+            <h3 style="margin-bottom: 6px;">Asset Recovery</h3>
+            <p>Repossession, redelivery coordination, and jurisdictional support for lenders and lessors.</p>
+          </div>
+          <div style="border-left: 2px solid var(--charcoal); padding-left: 20px;">
+            <h3 style="margin-bottom: 6px;">Ferry Operations</h3>
+            <p>Global aircraft positioning with full compliance and operational oversight.</p>
+          </div>
+          <div style="border-left: 2px solid var(--charcoal); padding-left: 20px;">
+            <h3 style="margin-bottom: 6px;">Technical Transitions</h3>
+            <p>Inspections, documentation, and records management for aircraft handovers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="image-block" style="background-image:url('mx.jpg')"></section>
-<section class="image-block" style="background-image:url('world-map.webp')"></section>
+<div class="image-block reveal" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1800&q=85&auto=format&fit=crop');"></div>
+
+<section class="section section--grey reveal">
+  <div class="container" style="max-width: 720px;">
+    <span class="section-label">Our Approach</span>
+    <h2>Precision over volume</h2>
+    <p style="margin-bottom: 20px;">We deliberately keep our client base selective. Every engagement receives direct attention from senior team members — not passed down to junior staff once the contract is signed.</p>
+    <p style="margin-bottom: 20px;">This means faster decisions, cleaner communication, and fewer surprises. Our clients return because they know exactly what they're getting.</p>
+    <a href="contact.html" class="btn btn-dark" style="margin-top: 12px;">Work With Us</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    AtlisPoint Aero Group &nbsp;·&nbsp; <a href="mailto:info@atlispoint.com">info@atlispoint.com</a>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>
