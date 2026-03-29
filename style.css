@@ -282,3 +282,23 @@ footer .foot {
   .panel { grid-column: span 12; }
   .form { grid-column: span 12; }
 }
+
+/* White background + dark typography */
+:root{
+  --bg:#ffffff;
+  --panel:#f4f6fa;
+  --card:#ffffff;
+  --text:#0b0f19;
+  --muted:rgba(11,15,25,.70);
+  --border:rgba(11,15,25,.12);
+}
+header{background:rgba(255,255,255,.90);}
+.nav a{color:rgba(11,15,25,.84);}
+.nav a:hover{background:rgba(11,15,25,.04);}
+footer{color:rgba(11,15,25,.7);}
+label{color:rgba(11,15,25,.7);}
+.hero::before{
+  background: linear-gradient(to top, rgba(11,11,13,.82), rgba(11,11,13,.45)),
+              url('https://images.unsplash.com/photo-1519681393784-d120267933ba') center/cover no-repeat;
+}
+.brand-logo{width:100px;height:auto;}
