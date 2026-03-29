@@ -33,14 +33,14 @@
   <div class="container">
     <div class="section-heading">
       <span class="section-label">What We Look For</span>
-      <h2>Professionals who operate with precision</h2>
+      <h2>Professionals Who Operate with Precision</h2>
     </div>
     <div class="grid-3">
       <div class="card reveal reveal-1">
         <div class="card-body">
           <span class="card-icon">✈</span>
           <h3>Ferry Pilots</h3>
-          <p>ATPL holders with international ferry experience, ferry permits familiarity, and comfort operating in non-standard environments.</p>
+          <p>ATPL holders with international ferry experience, ferry permit familiarity, and comfort operating in non-standard environments.</p>
         </div>
       </div>
       <div class="card reveal reveal-2">
@@ -61,15 +61,68 @@
   </div>
 </section>
 
-<div class="image-block reveal" style="background-image: url('https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1800&q=85&auto=format&fit=crop');"></div>
+<div class="image-block reveal" style="background-image: url('https://images.unsplash.com/photo-1583396618422-f0a9c8b2e688?w=1800&q=85&auto=format&fit=crop');"></div>
 
 <section class="section section--grey reveal">
+  <div class="container" style="max-width: 820px;">
+    <span class="section-label">Pilot Requirements</span>
+    <h2>Ferry Pilot Application</h2>
+    <p style="margin-bottom: 32px;">All pilots operating with AtlisPoint must meet the following minimum requirements before being considered for any assignment.</p>
+
+    <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px;">
+      <div style="border-left: 2px solid var(--charcoal); padding-left: 20px;">
+        <h3 style="margin-bottom: 4px;">Airline Transport Pilot License (ATP)</h3>
+        <p>A valid ATP certificate issued by an ICAO-recognized authority is required for all ferry pilot engagements.</p>
+      </div>
+      <div style="border-left: 2px solid var(--charcoal); padding-left: 20px;">
+        <h3 style="margin-bottom: 4px;">Current Type Rating</h3>
+        <p>Pilots must hold a current, valid type rating on the specific aircraft to be ferried. No exceptions.</p>
+      </div>
+      <div style="border-left: 2px solid var(--charcoal); padding-left: 20px;">
+        <h3 style="margin-bottom: 4px;">First Class Medical Certificate</h3>
+        <p>A valid first class medical certificate is required and must remain current throughout the duration of any assignment.</p>
+      </div>
+    </div>
+
+    <h2 style="margin-bottom: 24px;">Apply Now</h2>
+    <form id="pilot-form">
+      <label for="pilotName">Full Name</label>
+      <input id="pilotName" name="pilotName" type="text" placeholder="Your full name" required>
+
+      <label for="pilotEmail">Email Address</label>
+      <input id="pilotEmail" name="pilotEmail" type="email" placeholder="you@example.com" required>
+
+      <label for="licenseNum">ATP License Number</label>
+      <input id="licenseNum" name="licenseNum" type="text" placeholder="License number and issuing authority" required>
+
+      <label for="typeRating">Current Type Rating(s)</label>
+      <input id="typeRating" name="typeRating" type="text" placeholder="e.g. B737, A320, CRJ-200" required>
+
+      <label for="totalHours">Total Flight Hours</label>
+      <input id="totalHours" name="totalHours" type="text" placeholder="e.g. 4,500 hours" required>
+
+      <label for="ferryExp">Ferry Flight Experience</label>
+      <textarea id="ferryExp" name="ferryExp" rows="4" placeholder="Describe your ferry flight experience, routes flown, and any ferry permit experience..." required></textarea>
+
+      <label for="medExpiry">First Class Medical Expiry Date</label>
+      <input id="medExpiry" name="medExpiry" type="text" placeholder="MM/YYYY" required>
+
+      <label for="availability">Availability</label>
+      <textarea id="availability" name="availability" rows="3" placeholder="When are you available and what regions can you operate in?" required></textarea>
+
+      <button class="btn btn-dark" type="submit" style="width: 100%; justify-content: center; margin-top: 8px;">Submit Application</button>
+      <div class="form-hint" id="pilot-hint"></div>
+    </form>
+  </div>
+</section>
+
+<section class="section section--dark reveal">
   <div class="container" style="max-width: 720px;">
-    <span class="section-label">How to Apply</span>
-    <h2>No open roles listed — and that is intentional</h2>
-    <p style="margin-bottom: 20px;">We don't maintain a permanent job board. When we need to expand the team, we draw from a pool of professionals we've already spoken with. If your background fits what we do, we want to hear from you now — not when a role is already filled.</p>
-    <p style="margin-bottom: 32px;">Send a brief introduction and your experience summary to the address below. No recruiters.</p>
-    <a href="contact.html" class="btn btn-dark">Get in Touch</a>
+    <span class="section-label" style="color: #888;">How to Apply</span>
+    <h2 style="color: #ffffff; margin-bottom: 16px;">No Open Roles Listed — and That Is Intentional</h2>
+    <p style="color: #aaaaaa; margin-bottom: 20px;">We don't maintain a permanent job board. When We Need to Expand the Team, We Draw from a Pool of Professionals We've Already Spoken With. If Your Background Fits What We Do, We Want to Hear from You Now — Not When a Role Is Already Filled.</p>
+    <p style="color: #aaaaaa; margin-bottom: 32px;">Send a Brief Introduction and Your Experience Summary to the Address Below. No Recruiters.</p>
+    <a href="contact.html" class="btn btn-primary">Get in Touch</a>
   </div>
 </section>
 
@@ -90,6 +143,32 @@
     { threshold: 0.1 }
   );
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  document.getElementById('pilot-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name    = document.getElementById('pilotName').value.trim();
+    const email   = document.getElementById('pilotEmail').value.trim();
+    const license = document.getElementById('licenseNum').value.trim();
+    const rating  = document.getElementById('typeRating').value.trim();
+    const hours   = document.getElementById('totalHours').value.trim();
+    const ferry   = document.getElementById('ferryExp').value.trim();
+    const medical = document.getElementById('medExpiry').value.trim();
+    const avail   = document.getElementById('availability').value.trim();
+
+    const subject = encodeURIComponent('Pilot Application from ' + name);
+    const body = encodeURIComponent(
+      'Name: ' + name +
+      '\nEmail: ' + email +
+      '\nATP License: ' + license +
+      '\nType Rating(s): ' + rating +
+      '\nTotal Hours: ' + hours +
+      '\nFirst Class Medical Expiry: ' + medical +
+      '\n\nFerry Experience:\n' + ferry +
+      '\n\nAvailability:\n' + avail
+    );
+    window.location.href = 'mailto:info@atlispoint.com?subject=' + subject + '&body=' + body;
+    document.getElementById('pilot-hint').textContent = 'Opening your email app...';
+  });
 </script>
 
 </body>
