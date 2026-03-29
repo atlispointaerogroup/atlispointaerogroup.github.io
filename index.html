@@ -1,83 +1,106 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AtlisPoint Aero Group</title>
-  <meta name="description" content="AtlisPoint Aero Group keeps aviation support clear, disciplined, and reliable.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-grid">
+<header>
+  <div class="container">
+    <div class="topbar">
       <a class="brand" href="index.html" aria-label="AtlisPoint Aero Group home">
-        <span class="brand-mark" aria-hidden="true">AP</span>
-        <span class="brand-text">AtlisPoint</span>
+        <img class="brand-logo" src="logo.png" alt="AtlisPoint Aero Group" />
+        <div class="brand-title">
+          <strong>AtlisPoint Aero Group</strong>
+          <span>Precision logistics</span>
+        </div>
       </a>
-      <nav aria-label="Primary">
-        <a class="nav-link active" href="index.html">Home</a>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link" href="contact.html">Contact</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main class="page">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="panel">
-          <div class="eyebrow">Precision in transition</div>
-          <h1 class="h1">Aviation support that stays disciplined.</h1>
-          <p class="subhead">We help teams build clean systems: structured execution, quality control, and clear communication—without adding noise.</p>
-          <div class="hero-actions">
-            <a class="btn" href="about.html">Read our approach</a>
-            <a class="btn ghost" href="contact.html">Contact</a>
-          </div>
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="inner">
+        <div class="kicker">Aviation logistics &amp; asset recovery</div>
+        <h1>Precision Asset Recovery</h1>
+        <p>AtlisPoint Aero Group delivers structured, time-sensitive recovery and transition programs—built for aircraft operators, investors, and lessors who need certainty, documentation, and speed.</p>
+      </div>
+    </div>
+  </section>
 
-          <div class="hr"></div>
-
-          <h2>Where we focus</h2>
-          <div class="kpi-grid">
-            <div class="kpi">
-              <b>Structure</b>
-              <span>Goals, owners, and timelines that hold.</span>
-            </div>
-            <div class="kpi">
-              <b>Quality</b>
-              <span>Repeatable checklists and documentation.</span>
-            </div>
-            <div class="kpi">
-              <b>Clarity</b>
-              <span>Updates that reduce risk and guessing.</span>
-            </div>
-          </div>
+  <section class="section">
+    <div class="container">
+      <div class="kicker">Services</div>
+      <h2>Operational readiness, end-to-end</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Ferry Flights</h3>
+          <p>Planning, flight-following, and delivery assurance for end-of-life repositioning and return-to-service logistics.</p>
+          <div class="meta"><span class="pill">Flight ops</span><span class="pill">Compliance</span></div>
         </div>
-
-        <div class="panel">
-          <h2>Simple next steps</h2>
-          <p>Send what you’re trying to accomplish—timeline, constraints, and what “done” looks like.</p>
-          <div class="panel" style="background: #f8fafc;">
-            <h3>What we need to start</h3>
-            <ul class="list">
-              <li>Desired timeline</li>
-              <li>Scope & priorities</li>
-              <li>Dependencies / vendors</li>
-            </ul>
-            <a class="btn" href="contact.html">Start the conversation</a>
-          </div>
+        <div class="card">
+          <h3>Technical Transitions</h3>
+          <p>Hands-on coordination for records, inspections, and asset handover—structured to reduce downtime and dispute risk.</p>
+          <div class="meta"><span class="pill">Records</span><span class="pill">Handover</span></div>
         </div>
       </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      © <span id="year"></span> AtlisPoint Aero Group · info@atlispoint.com
     </div>
-  </footer>
+  </section>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="panel">
+          <div class="kicker">Contact</div>
+          <h2>Run recovery like an operation</h2>
+          <p>Send a note with the aircraft, location, timeline, and any constraints. We’ll reply with what we need to move forward.</p>
+        </div>
+        <div class="form">
+          <form id="contactForm">
+            <label for="name">Name</label>
+            <input id="name" name="name" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot">AtlisPoint Aero Group</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    const subject = encodeURIComponent('AtlisPoint inquiry - ' + (name || ''));
+    const body = encodeURIComponent(message + '\n\nFrom: ' + name + ' (' + email + ')');
+
+    window.location.href = 'mailto:info@atlispoint.com?subject=' + subject + '&body=' + body;
+  });
+</script>
 </body>
 </html>
