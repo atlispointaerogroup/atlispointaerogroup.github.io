@@ -1,15 +1,18 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <title>Careers - AtlisPoint</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers — AtlisPoint Aero Group</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
   <div class="container topbar">
-    <img src="transparent-logo.png" class="brand-logo">
+    <div class="brand">
+      <img src="transparent-logo.png" class="brand-logo">
+    </div>
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -19,13 +22,75 @@
   </div>
 </header>
 
-<section class="section">
+<div class="page-hero">
   <div class="container">
     <h1>Careers</h1>
-    <p>We are always looking for experienced aviation professionals.</p>
+    <p>We work with experienced aviation professionals who bring operational discipline and sound judgment to every assignment.</p>
+  </div>
+</div>
+
+<section class="section reveal">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-label">What We Look For</span>
+      <h2>Professionals who operate with precision</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal reveal-1">
+        <div class="card-body">
+          <span class="card-icon">✈</span>
+          <h3>Ferry Pilots</h3>
+          <p>ATPL holders with international ferry experience, ferry permits familiarity, and comfort operating in non-standard environments.</p>
+        </div>
+      </div>
+      <div class="card reveal reveal-2">
+        <div class="card-body">
+          <span class="card-icon">🔧</span>
+          <h3>Technical Representatives</h3>
+          <p>Licensed engineers and inspectors with experience in aircraft acceptance, redelivery checks, and records audits.</p>
+        </div>
+      </div>
+      <div class="card reveal reveal-3">
+        <div class="card-body">
+          <span class="card-icon">📋</span>
+          <h3>Operations Coordinators</h3>
+          <p>Detail-oriented professionals experienced in flight planning, permit acquisition, and multi-jurisdiction logistics.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="image-block" style="background-image:url('pilot-jobs.jpg')"></section>
+<div class="image-block reveal" style="background-image: url('https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1800&q=85&auto=format&fit=crop');"></div>
+
+<section class="section section--grey reveal">
+  <div class="container" style="max-width: 720px;">
+    <span class="section-label">How to Apply</span>
+    <h2>No open roles listed — and that is intentional</h2>
+    <p style="margin-bottom: 20px;">We don't maintain a permanent job board. When we need to expand the team, we draw from a pool of professionals we've already spoken with. If your background fits what we do, we want to hear from you now — not when a role is already filled.</p>
+    <p style="margin-bottom: 32px;">Send a brief introduction and your experience summary to the address below. No recruiters.</p>
+    <a href="contact.html" class="btn btn-dark">Get in Touch</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    AtlisPoint Aero Group &nbsp;·&nbsp; <a href="mailto:info@atlispoint.com">info@atlispoint.com</a>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
 </body>
 </html>
