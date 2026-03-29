@@ -1,17 +1,18 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlis Point Aero Group</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
   <div class="container topbar">
     <div class="brand">
-      <img src="transparent-logo.png" class="brand-logo">
+      <img src="transparent-logo.png" class="brand-logo" style="filter: brightness(0) invert(1);">
     </div>
-
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -25,24 +26,47 @@
   <div class="container hero-inner">
     <h1>Precision Asset Recovery</h1>
     <p>Aviation logistics and aircraft recovery for operators, lenders, and asset managers.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container grid">
-    <div class="card">
-      <h3>Ferry Flights</h3>
-      <p>Global aircraft repositioning with operational control and compliance oversight.</p>
-    </div>
-
-    <div class="card">
-      <h3>Technical Transitions</h3>
-      <p>End-to-end aircraft handovers, inspections, and documentation management.</p>
+    <div class="cta-group">
+      <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+      <a href="about.html" class="btn btn-ghost">Learn More</a>
     </div>
   </div>
 </section>
 
-<section class="image-block" style="background:url('airliner-sunset.jpg')"></section>
+<section class="section reveal">
+  <div class="container">
+    <span class="section-label">What We Do</span>
+    <div class="grid">
+      <div class="card reveal reveal-1">
+        <div class="card-body">
+          <h3>Ferry Flights</h3>
+          <p>Global aircraft repositioning with operational control and compliance oversight.</p>
+        </div>
+      </div>
+      <div class="card reveal reveal-2">
+        <div class="card-body">
+          <h3>Technical Transitions</h3>
+          <p>End-to-end aircraft handovers, inspections, and documentation management.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="image-block reveal" style="background-image: url('https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=1100&q=85&auto=format&fit=crop');"></div>
+
+<script>
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>
