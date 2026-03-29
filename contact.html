@@ -1,108 +1,119 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact | AtlisPoint Aero Group</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — AtlisPoint Aero Group</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-grid">
-      <a class="brand" href="index.html" aria-label="AtlisPoint Aero Group home">
-        <span class="brand-mark" aria-hidden="true">AP</span>
-        <span class="brand-text">AtlisPoint</span>
-      </a>
-      <nav aria-label="Primary">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link active" href="contact.html">Contact</a>
-      </nav>
+
+<header>
+  <div class="container topbar">
+    <div class="brand">
+      <img src="transparent-logo.png" class="brand-logo">
     </div>
-  </header>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <main class="page">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="panel">
-          <div class="eyebrow">Contact</div>
-          <h1 class="h1">Let’s make it precise.</h1>
-          <p class="subhead">If you want disciplined coordination and clear execution, send a quick note with what you’re trying to accomplish.</p>
+<div class="page-hero">
+  <div class="container">
+    <h1>Contact</h1>
+    <p>Tell us what you are working on. We respond the same day.</p>
+  </div>
+</div>
 
-          <div class="panel" style="margin-top: 1.75rem;">
-            <h2>Direct email</h2>
-            <p><b>Email:</b> <a class="link" href="mailto:info@atlispoint.com">info@atlispoint.com</a></p>
-            <p><b>Response time:</b> usually same day.</p>
-            <div class="hr"></div>
-            <p>Prefer a quick form? Fill this out and it will open an email draft with your details.</p>
-          </div>
+<div class="image-block" style="height: 360px; background-image: url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1800&q=85&auto=format&fit=crop');"></div>
+
+<section class="section reveal">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <span class="section-label">Get in Touch</span>
+        <h2>Direct contact</h2>
+        <p style="margin-bottom: 28px;">If you have a time-sensitive matter, email us directly. For everything else, use the form and we will follow up promptly.</p>
+
+        <div class="contact-detail">
+          <span class="label">Email</span>
+          <a href="mailto:info@atlispoint.com">info@atlispoint.com</a>
         </div>
 
-        <div class="panel">
-          <h2>Contact form</h2>
-          <form id="contact-form" class="form" method="post">
-            <label for="fullName">Full name</label>
-            <input id="fullName" name="fullName" type="text" autocomplete="name" required>
-
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
-
-            <label for="message">What do you need help with?</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-
-            <button class="btn" type="submit">Send to AtlisPoint</button>
-            <div class="form-hint" id="hint"></div>
-          </form>
-
-          <div class="panel" style="background: #f8fafc; margin-top: 1.5rem;">
-            <h3>What to include</h3>
-            <ul class="list">
-              <li>Desired timeline</li>
-              <li>Scope / deliverables (even rough)</li>
-              <li>Any constraints (budget, regs, dependencies)</li>
-            </ul>
-          </div>
+        <div class="contact-detail">
+          <span class="label">Response Time</span>
+          <span style="font-size: 17px; font-weight: 600; color: var(--text);">Same business day</span>
         </div>
+
+        <hr class="divider-line">
+
+        <h3 style="margin-bottom: 12px;">What to include</h3>
+        <p style="margin-bottom: 8px;">— Your desired timeline</p>
+        <p style="margin-bottom: 8px;">— Scope of work (even a rough outline helps)</p>
+        <p style="margin-bottom: 8px;">— Aircraft type, if relevant</p>
+        <p>— Any constraints or dependencies</p>
       </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="container">
-      © 2026 AtlisPoint Aero Group · info@atlispoint.com
+      <div>
+        <span class="section-label">Send a Message</span>
+        <h2>Contact form</h2>
+        <form id="contact-form" style="margin-top: 24px;">
+          <label for="fullName">Full name</label>
+          <input id="fullName" name="fullName" type="text" placeholder="Your full name" autocomplete="name" required>
+
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+
+          <label for="message">How can we help?</label>
+          <textarea id="message" name="message" rows="6" placeholder="Describe what you need..." required></textarea>
+
+          <button class="btn btn-dark" type="submit" style="width: 100%; justify-content: center;">Send Message</button>
+          <div class="form-hint" id="hint"></div>
+        </form>
+      </div>
+
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    const TARGET_EMAIL = "info@atlispoint.com";
+<footer>
+  <div class="container">
+    AtlisPoint Aero Group &nbsp;·&nbsp; <a href="mailto:info@atlispoint.com">info@atlispoint.com</a>
+  </div>
+</footer>
 
-    function encodeMailBody(lines) {
-      return lines.map(line => encodeURIComponent(line)).join("%0A");
-    }
-
-    document.getElementById("contact-form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("fullName").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      if (!name || !email || !message) {
-        document.getElementById("hint").textContent = "Fill in all fields.";
-        return;
+<script>
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
       }
+    }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-      const subject = encodeURIComponent(`Website inquiry from ${name}`);
-      const body = encodeMailBody([
-        `Name: ${name}`,
-        `Email: ${email}`,
-        "",
-        "Message:",
-        message
-      ]);
+  document.getElementById('contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if (!name || !email || !message) {
+      document.getElementById('hint').textContent = 'Please fill in all fields.';
+      return;
+    }
+    const subject = encodeURIComponent('Website inquiry from ' + name);
+    const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+    window.location.href = 'mailto:info@atlispoint.com?subject=' + subject + '&body=' + body;
+    document.getElementById('hint').textContent = 'Opening your email app...';
+  });
+</script>
 
-      window.location.href = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
-      document.getElementById("hint").textContent = "Opening your email app…";
-    });
-  </script>
 </body>
 </html>
