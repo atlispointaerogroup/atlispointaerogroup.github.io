@@ -1,42 +1,135 @@
 /* =============================================
-   GLOBAL RESET & BOX MODEL
-   Fix: form inputs overflowing + cards misaligned
+   IMAGE GUIDE — use these free Unsplash URLs
+   -----------------------------------------------
+   HERO (replace 'airliner-sunset.jpg'):
+   https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1800&q=85&auto=format&fit=crop
+
+   IMAGE BLOCK 1:
+   https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=1100&q=85&auto=format&fit=crop
+
+   IMAGE BLOCK 2:
+   https://images.unsplash.com/photo-1542296332-2e4473faf563?w=1100&q=85&auto=format&fit=crop
+
+   IMAGE BLOCK 3 (lounge / interior):
+   https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=1100&q=85&auto=format&fit=crop
+
+   WHY YOUR OLD IMAGES WERE GRAINY:
+   - background-size:cover stretches a small file across a large area
+   - Retina screens need images at 2x their displayed pixel width
+   - Always add ?w=[2x the container width in px] to any Unsplash URL
+   ============================================= */
+
+/* =============================================
+   GLOBAL RESET
    ============================================= */
 *, *::before, *::after {
-  box-sizing: border-box; /* Prevents padding from pushing elements outside their container */
-}
-
-:root {
-  --bg: #ffffff;
-  --text: #0b0f19;
-  --muted: #5a6475;
-  --border: #e6e9ef;
-}
-
-body {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
-  background: #ffffff;
-  color: var(--text);
-
-  /* Fix: jagged/blurry text on macOS + retina screens */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  padding: 0;
 }
 
 /* =============================================
-   NAV
+   DESIGN TOKENS
    ============================================= */
-header {
-  border-bottom: 1px solid var(--border);
-  background: #fff;
+:root {
+  --navy:        #0b1a35;
+  --navy-mid:    #132241;
+  --gold:        #c9a84c;
+  --gold-light:  #e8c97a;
+  --cream:       #faf8f3;
+  --white:       #ffffff;
+
+  /* Text — boosted contrast from original #555 */
+  --text-primary:   #0d1117;
+  --text-body:      #374151;   /* was #555 — much darker, WCAG AA on white */
+  --text-muted:     #6b7280;
+  --text-on-dark:   #f0ede6;
+  --text-on-dark-2: #c5bfa8;
+
+  --bg:          #ffffff;
+  --bg-tinted:   #faf8f3;
+  --border:      #e0ddd6;
+
+  --transition:  0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* =============================================
+   BASE
+   ============================================= */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--navy);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover { color: var(--gold); }
+
+/* =============================================
+   TYPOGRAPHY
+   ============================================= */
+h1 {
+  font-family: "Georgia", serif;
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 1.08;
+  color: var(--white);
+}
+
+h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: var(--text-primary);   /* was inheriting faint gray — now solid */
+  line-height: 1.3;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-body);      /* was #555 — now #374151, far more legible */
+}
+
+/* =============================================
+   LAYOUT
+   ============================================= */
 .container {
   width: 1100px;
   max-width: calc(100% - 40px);
   margin: auto;
+}
+
+/* =============================================
+   HEADER — dark, sticky, glassmorphism tint
+   ============================================= */
+header {
+  background: var(--navy);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .topbar {
@@ -44,248 +137,482 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 18px 0;
+  gap: 24px;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
+.brand { display: flex; align-items: center; gap: 16px; }
 
 .brand-logo {
-  width: 260px;
-
-  /* Fix: logo grain — render logo crisp, never scale it blurry */
+  width: 220px;
   max-width: 100%;
-  image-rendering: -webkit-optimize-contrast; /* Safari */
-  image-rendering: crisp-edges;               /* Firefox */
+  height: auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
+
+/* If your logo is dark-on-white, uncomment this: */
+/* .brand-logo { filter: brightness(0) invert(1); } */
+
+.nav { display: flex; gap: 32px; align-items: center; }
 
 .nav a {
-  font-weight: 500;
-  color: #222;
-  letter-spacing: .3px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-on-dark-2);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color var(--transition);
 }
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width var(--transition);
+}
+
+.nav a:hover { color: var(--gold-light); }
+.nav a:hover::after { width: 100%; }
 
 /* =============================================
-   HERO
-   Fix: grainy background image
+   HERO — cinematic, sharp, animated text
+   Fix: use the 1800px Unsplash URL above for zero grain
    ============================================= */
 .hero {
-  height: 560px;
+  height: 620px;
   display: flex;
   align-items: center;
-  color: #fff;
+  color: var(--white);
   position: relative;
+  overflow: hidden;
 
-  background-image: url('airliner-sunset.jpg');
-  background-size: cover;       /* Was already correct — kept */
+  background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1800&q=85&auto=format&fit=crop');
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: scroll; /* Fix: 'fixed' causes blur/grain on iOS — use scroll */
-
-  /*
-    Fix: GPU compositing grain.
-    DO NOT use will-change: transform here — it forces a new compositing
-    layer which degrades image quality on many browsers. Leave it off.
-  */
+  background-attachment: scroll; /* NOT fixed — causes iOS blur */
 }
 
-.hero::after {
-  content: "";
+/* Dark-left + bottom vignette overlay */
+.hero::before {
+  content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,.65), rgba(0,0,0,.2));
+  background:
+    linear-gradient(to right, rgba(11,26,53,0.82) 0%, rgba(11,26,53,0.3) 60%, transparent 100%),
+    linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 40%);
+  z-index: 1;
+}
+
+/* Decorative gold left stripe */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  z-index: 2;
 }
 
 .hero-inner {
   position: relative;
-  z-index: 2;
+  z-index: 3;
+}
+
+/* Staggered entrance animations */
+.hero-inner h1 {
+  animation: fadeUp 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.hero-inner p {
+  color: var(--text-on-dark-2);
+  font-size: 18px;
+  margin-top: 14px;
+  animation: fadeUp 0.9s 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.hero-inner .cta-group {
+  margin-top: 36px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.9s 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+button, .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* Shimmer sweep on hover */
+button::before, .btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+button:hover::before, .btn:hover::before { left: 100%; }
+
+button:hover, .btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.4);
+}
+
+button:active, .btn:active { transform: translateY(0); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.45);
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: none;
 }
 
 /* =============================================
    SECTION
    ============================================= */
-.section {
-  padding: 80px 0;
+.section { padding: 90px 0; }
+.section--tinted { background: var(--bg-tinted); }
+.section--dark { background: var(--navy); }
+
+.section--dark h2,
+.section--dark h3 { color: var(--text-on-dark); }
+
+.section--dark p { color: var(--text-on-dark-2); }
+
+/* Gold eyebrow label above headings */
+.section-label {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
 }
 
 /* =============================================
    GRID & CARDS
-   Fix: cards misaligned — use align-items: stretch
-   so all cards in a row are the same height
    ============================================= */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  align-items: stretch; /* Fix: cards now match height within each row */
+  gap: 28px;
+  align-items: stretch;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
 }
 
 .card {
-  border: 1px solid #e6e9ef;
-  padding: 32px;
-  background: #fff;
-  transition: transform .25s ease, box-shadow .25s ease; /* Fix: only transition what's needed */
-  display: flex;           /* Fix: inner content aligns consistently */
+  border: 1px solid var(--border);
+  background: var(--white);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  display: flex;
   flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Gold accent bar that sweeps in on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0,0,0,.08);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 64px rgba(11, 26, 53, 0.13);
+  border-color: transparent;
+}
+
+.card:hover::before { transform: scaleX(1); }
+
+.card-body {
+  padding: 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* =============================================
    IMAGE BLOCK
-   Fix: grainy background images
+   Fix: explicit width + zoom-on-hover
+   Use the 1100px Unsplash URLs from the guide above
    ============================================= */
 .image-block {
-  height: 420px;
-  width: 100%;              /* Fix: was missing — block collapsed without explicit width */
+  display: block;
+  width: 100%;
+  height: 360px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-  /*
-    Fix: image grain from subpixel rendering.
-    Avoid applying transform or filter to this element —
-    both trigger compositing that degrades raster quality.
-    Instead, serve images at 2× their display size for retina screens,
-    e.g. if .image-block is 555px wide, serve a 1110px-wide image.
-  */
+/* Zoom on parent card hover */
+.card:hover .image-block {
+  transform: scale(1.04);
+}
+
+/* Overlay gradient that fades in on hover */
+.image-block::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11,26,53,0.4) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+
+.card:hover .image-block::after { opacity: 1; }
+
+/* =============================================
+   STATS STRIP
+   ============================================= */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.stat-item {
+  background: var(--white);
+  padding: 36px 24px;
+  text-align: center;
+  transition: background var(--transition);
+}
+
+.stat-item:hover { background: var(--bg-tinted); }
+
+.stat-number {
+  font-family: "Georgia", serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -1px;
+  line-height: 1;
   display: block;
-  overflow: hidden;         /* Ensures nothing bleeds past rounded corners if added later */
+}
+
+.stat-label {
+  display: block;
+  margin-top: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 /* =============================================
    CONTACT FORM
-   Fix: inputs overflowing container
-   (box-sizing: border-box above already fixes this,
-    but we also remove the raw width:100% + padding conflict explicitly)
+   Fix: no overflow, proper styling
    ============================================= */
+.form-group { margin-bottom: 16px; }
+
+form label {
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
 form input,
 form textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
+  display: block;
+  width: 100%;          /* safe — box-sizing:border-box from global reset */
+  padding: 13px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;      /* prevents iOS auto-zoom — must stay >=16px */
+  color: var(--text-primary);
+  background: var(--white);
   border: 1px solid var(--border);
-  /* box-sizing is now inherited from the global rule above */
-  font-family: inherit;     /* Fix: inputs defaulting to browser monospace */
-  font-size: 16px;          /* Fix: prevents iOS auto-zoom on focus (must be ≥16px) */
-  display: block;           /* Fix: inline inputs ignore top/bottom margin */
-  border-radius: 0;         /* Fix: iOS adds rounded corners by default */
-  -webkit-appearance: none; /* Fix: iOS adds inset shadow on inputs */
+  border-radius: 2px;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(11, 26, 53, 0.08);
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
 }
 
 form textarea {
-  resize: vertical;         /* Allow vertical resize only — horizontal breaks layout */
-  min-height: 120px;
-}
-
-button {
-  padding: 14px;
-  background: #000;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 16px;
+  resize: vertical;
+  min-height: 130px;
 }
 
 /* =============================================
-   TYPOGRAPHY
+   SCROLL REVEAL ANIMATION
+   Add class="reveal" to .section or .card elements.
+   Then paste this JS before </body>:
+
+   <script>
+     const io = new IntersectionObserver(
+       entries => entries.forEach(e => {
+         if (e.isIntersecting) {
+           e.target.classList.add('visible');
+           io.unobserve(e.target);
+         }
+       }),
+       { threshold: 0.1 }
+     );
+     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+   </script>
    ============================================= */
-h1 {
-  font-size: 64px;
-  letter-spacing: -1px;
-  font-weight: 700;
-  line-height: 1.1;
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-h3 {
-  font-size: 22px;
-  font-weight: 600;
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
+/* Staggered cards — add reveal-1 through reveal-4 for delay */
+.reveal-1 { transition-delay: 0.05s; }
+.reveal-2 { transition-delay: 0.15s; }
+.reveal-3 { transition-delay: 0.25s; }
+.reveal-4 { transition-delay: 0.35s; }
+
+/* Accessibility: no animations if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+  .hero-inner h1,
+  .hero-inner p,
+  .hero-inner .cta-group { animation: none; }
 }
 
 /* =============================================
-   RESPONSIVE — MOBILE
-   Fix: mobile layout broken
+   FOOTER
    ============================================= */
+footer {
+  background: var(--navy);
+  color: var(--text-on-dark-2);
+  padding: 48px 0 32px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+}
 
-/* Tablet: shrink hero text, ease the grid */
+footer a { color: var(--text-on-dark-2); transition: color var(--transition); }
+footer a:hover { color: var(--gold-light); }
+
+/* =============================================
+   RESPONSIVE — TABLET 900px
+   ============================================= */
 @media (max-width: 900px) {
-  h1 {
-    font-size: 48px;
-  }
-
-  .hero {
-    height: 460px;
-  }
-
-  .brand-logo {
-    width: 200px;
-  }
+  .hero { height: 520px; }
+  .brand-logo { width: 180px; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Mobile: stack everything single column */
+/* =============================================
+   RESPONSIVE — MOBILE 640px
+   ============================================= */
 @media (max-width: 640px) {
-  .container {
-    max-width: calc(100% - 32px);
-  }
+  .container { max-width: calc(100% - 32px); }
 
-  .topbar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 16px 0;
-  }
-
-  .nav {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .brand-logo {
-    width: 160px;
-  }
+  .topbar { flex-wrap: wrap; padding: 14px 0; gap: 10px; }
+  .nav { gap: 18px; flex-wrap: wrap; }
+  .nav a { font-size: 12px; }
+  .brand-logo { width: 150px; }
 
   .hero {
     height: auto;
-    min-height: 360px;
-    padding: 48px 0;
-
-    /* Fix: background-size:cover on short mobile heroes can over-crop.
-       Use a top-biased position for portrait images. */
-    background-position: center top;
+    min-height: 420px;
+    padding: 72px 0 56px;
+    background-position: 65% center; /* keep aircraft visible in portrait */
   }
 
-  h1 {
-    font-size: 36px;
-    letter-spacing: -.5px;
+  .hero-inner p { font-size: 16px; }
+
+  .hero-inner .cta-group {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .grid {
-    grid-template-columns: 1fr; /* Stack cards vertically on mobile */
-    gap: 20px;
-  }
+  .grid,
+  .grid-3 { grid-template-columns: 1fr; gap: 20px; }
 
-  .image-block {
-    height: 260px; /* Shorter on mobile so images aren't over-cropped */
-  }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
 
-  .section {
-    padding: 48px 0;
-  }
+  .image-block { height: 240px; }
 
-  button {
-    width: 100%;
-  }
+  .section { padding: 60px 0; }
+
+  button, .btn { width: 100%; justify-content: center; }
 }
