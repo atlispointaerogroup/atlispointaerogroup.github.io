@@ -302,3 +302,7 @@ label{color:rgba(11,15,25,.7);}
               url('https://images.unsplash.com/photo-1519681393784-d120267933ba') center/cover no-repeat;
 }
 .brand-logo{width:100px;height:auto;}
+
+/* Tactical imagery + larger logo */
+
+.brand-logo{width:280px;height:auto;max-width:60vw;}
