@@ -3,119 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — AtlisPoint Aero Group</title>
+  <title>Contact &mdash; AtlisPoint Aero Group</title>
   <link rel="icon" type="image/png" href="transparent-logo.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <div class="container topbar">
-    <div class="brand">
-      <img src="transparent-logo.png" class="brand-logo">
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <img src="transparent-logo.png" class="brand-logo">
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="recruiting.html">Recruiting</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
-<div class="page-hero">
-  <div class="container">
-    <h1>Contact</h1>
-    <p>Whether it’s an aircraft movement or recovery, a maintenance role to fill, or your next position — tell us what you’re working on. We respond the same day.</p>
-  </div>
-</div>
-
-<div class="image-block" style="height: 360px; background-image: url('https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=1800&q=85&auto=format&fit=crop');"></div>
-  
-<section class="section reveal">
-  <div class="container">
-    <div class="contact-grid">
-
-      <div class="contact-info">
-        <span class="section-label">Get in Touch</span>
-        <h2>Direct contact</h2>
-        <p style="margin-bottom: 28px;">If you have a time-sensitive matter, email us directly. For everything else, use the form and we will follow up promptly.</p>
-
-        <div class="contact-detail">
-          <span class="label">Email</span>
-          <a href="mailto:info@atlispoint.com">info@atlispoint.com</a>
-        </div>
-
-        <div class="contact-detail">
-          <span class="label">Response Time</span>
-          <span style="font-size: 17px; font-weight: 600; color: var(--text);">Same business day</span>
-        </div>
-
-        <hr class="divider-line">
-
-        <h3 style="margin-bottom: 12px;">What to include</h3>
-        <p style="margin-bottom: 8px;">— Your desired timeline</p>
-        <p style="margin-bottom: 8px;">— Scope of work (even a rough outline helps)</p>
-        <p style="margin-bottom: 8px;">— Aircraft type, if relevant</p>
-        <p>— Any constraints or dependencies</p>
-      </div>
-
-      <div>
-        <span class="section-label">Send a Message</span>
-        <h2>Contact form</h2>
-        <form id="contact-form" style="margin-top: 24px;">
-          <label for="fullName">Full name</label>
-          <input id="fullName" name="fullName" type="text" placeholder="Your full name" autocomplete="name" required>
-
-          <label for="email">Email address</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
-
-          <label for="message">How can we help?</label>
-          <textarea id="message" name="message" rows="6" placeholder="Describe what you need..." required></textarea>
-
-          <button class="btn btn-dark" type="submit" style="width: 100%; justify-content: center;">Send Message</button>
-          <div class="form-hint" id="hint"></div>
-        </form>
-      </div>
-
+  <div class="page-hero">
+    <div class="container">
+      <h1>Contact</h1>
+      <p>Whether it's an aircraft recovery or ferry, a lease transition, an asset management mandate, or a remarketing or transaction need &mdash; tell us what you're working on. We respond the same day.</p>
     </div>
   </div>
-</section>
 
-<footer>
-  <div class="container">
-AtlisPoint Aero Group &nbsp;·&nbsp; <a href="mailto:info@atlispoint.com">info@atlispoint.com</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a>
-</div>
-</footer>
+  <div class="image-block" style="height: 360px; background-image: url('https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=1800&q=85&auto=format&fit=crop');"></div>
 
-<script>
-  const io = new IntersectionObserver(
-    entries => entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
+  <section class="section reveal">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <span class="section-label">Get in Touch</span>
+          <h2>Direct contact</h2>
+          <p style="margin-bottom: 28px;">If you have a time-sensitive matter, email us directly. For everything else, use the form and we will follow up promptly.</p>
+
+          <div class="contact-detail">
+            <span class="label">Email</span>
+            <a href="mailto:info@atlispoint.com">info@atlispoint.com</a>
+          </div>
+
+          <div class="contact-detail">
+            <span class="label">Response Time</span>
+            <span style="font-size: 17px; font-weight: 600; color: var(--text);">Same business day</span>
+          </div>
+
+          <hr class="divider-line">
+
+          <h3 style="margin-bottom: 12px;">What to include</h3>
+          <p style="margin-bottom: 8px;">&mdash; Your desired timeline</p>
+          <p style="margin-bottom: 8px;">&mdash; Scope of work (even a rough outline helps)</p>
+          <p style="margin-bottom: 8px;">&mdash; Aircraft type, if relevant</p>
+          <p>&mdash; Any constraints or dependencies</p>
+        </div>
+
+        <div>
+          <span class="section-label">Send a Message</span>
+          <h2>Contact form</h2>
+          <form id="contact-form" style="margin-top: 24px;">
+            <label for="fullName">Full name</label>
+            <input id="fullName" name="fullName" type="text" placeholder="Your full name" autocomplete="name" required>
+
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+
+            <label for="message">How can we help?</label>
+            <textarea id="message" name="message" rows="6" placeholder="Describe what you need..." required></textarea>
+
+            <button class="btn btn-dark" type="submit" style="width: 100%; justify-content: center;">Send Message</button>
+            <div class="form-hint" id="hint"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      AtlisPoint Aero Group &nbsp;&middot;&nbsp; <a href="mailto:info@atlispoint.com">info@atlispoint.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) {
+        document.getElementById('hint').textContent = 'Please fill in all fields.';
+        return;
       }
-    }),
-    { threshold: 0.1 }
-  );
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  document.getElementById('contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('fullName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-    if (!name || !email || !message) {
-      document.getElementById('hint').textContent = 'Please fill in all fields.';
-      return;
-    }
-    const subject = encodeURIComponent('Website inquiry from ' + name);
-    const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
-    window.location.href = 'mailto:info@atlispoint.com?subject=' + subject + '&body=' + body;
-    document.getElementById('hint').textContent = 'Opening your email app...';
-  });
-</script>
+      const subject = encodeURIComponent('Website inquiry from ' + name);
+      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+      window.location.href = 'mailto:info@atlispoint.com?subject=' + subject + '&body=' + body;
+      document.getElementById('hint').textContent = 'Opening your email app...';
+    });
+  </script>
 
 </body>
 </html>
