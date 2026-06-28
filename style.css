@@ -534,3 +534,37 @@ section h2, .section__title { color: var(--text) !important; }
 
 /* ---- Scroll progress bar uses accent ---- */
 .scroll-progress { background: var(--accent) !important; }
+
+
+/* =========================================================
+   v4.1 — Replace grainy low-res photo bands with a clean,
+   crisp CSS tactical panel (no raster scaling artifacts).
+   ========================================================= */
+.media-band__bg { display: none !important; }   /* hide low-res photos */
+.media-band__grid { display: none !important; }
+
+.media-band {
+  position: relative !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.022) 0 2px, transparent 2px 26px),
+    radial-gradient(ellipse 90% 120% at 12% 50%, rgba(44,74,99,0.55), transparent 60%),
+    linear-gradient(115deg, #1c2530 0%, #232f3c 45%, #2c3a48 100%) !important;
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.18) !important;
+  overflow: hidden !important;
+}
+/* faint tactical contour rings, drawn in CSS (crisp at any size) */
+.media-band::before {
+  content: "" !important;
+  position: absolute !important; inset: 0 !important; z-index: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at 82% 50%, transparent 0 60px, rgba(120,160,190,0.10) 60px 61px, transparent 61px 120px),
+    radial-gradient(circle at 82% 50%, transparent 0 120px, rgba(120,160,190,0.08) 120px 121px, transparent 121px 200px),
+    radial-gradient(circle at 82% 50%, transparent 0 200px, rgba(120,160,190,0.06) 200px 201px, transparent 201px 300px);
+}
+.media-band::after { display: none !important; }
+.media-band > *:not(.media-band__bg) { position: relative !important; z-index: 2 !important; }
+.media-band, .media-band h2, .media-band h3, .media-band p { color: #EAF0F4 !important; }
+.media-band p { color: #B7C2CC !important; }
+.media-band .eyebrow, .media-band .section__eyebrow { color: #9FE6C9 !important; }
