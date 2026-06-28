@@ -267,3 +267,48 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
   .hero__actions { flex-direction: column; align-items: stretch; }
   .btn { width: 100%; }
 }
+
+/* =====================================================================
+   v2 FIXES — logo visibility, stronger 3D hero, aircraft imagery
+   ===================================================================== */
+
+/* Logo is a near-black transparent PNG; invert it so it reads on dark UI */
+.nav__brand img,
+.footer__brand img {
+  filter: invert(1) brightness(1.85) contrast(1.05);
+}
+.nav__brand img { height: 40px; }
+.footer__brand img { height: 34px; }
+
+/* Let the 3D aircraft read clearly: lighten the left scrim, keep text legible
+   via a focused gradient behind the copy only */
+.hero__scrim {
+  background:
+    radial-gradient(60% 80% at 22% 50%, rgba(10,12,16,0.92), rgba(10,12,16,0.55) 45%, transparent 70%),
+    linear-gradient(180deg, rgba(10,12,16,0.35), rgba(10,12,16,0.6)) !important;
+}
+.hero__content { text-shadow: 0 2px 30px rgba(10,12,16,0.6); }
+
+/* Aircraft imagery ------------------------------------------------------ */
+.media-band { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid var(--border-bright); min-height: 320px; display: flex; align-items: flex-end; }
+.media-band img.media-band__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; filter: saturate(1.05) contrast(1.02); }
+.media-band__scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(10,12,16,0.92) 0%, rgba(10,12,16,0.55) 50%, rgba(10,12,16,0.15) 100%); }
+.media-band__grid { position: absolute; inset: 0; z-index: 1; opacity: 0.4; background-image: linear-gradient(rgba(57,194,255,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(57,194,255,0.10) 1px, transparent 1px); background-size: 44px 44px; mask-image: linear-gradient(90deg, #000, transparent 70%); }
+.media-band__content { position: relative; z-index: 2; padding: 40px; max-width: 560px; }
+.media-band__content h2 { font-size: clamp(1.6rem, 3.4vw, 2.4rem); margin-bottom: 10px; }
+.media-band__content p { color: var(--muted); }
+
+/* Image as a card visual */
+.card--photo { padding: 0; overflow: hidden; }
+.card--photo .card__media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+.card--photo .card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition); }
+.card--photo:hover .card__media img { transform: scale(1.05); }
+.card--photo .card__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(10,12,16,0.55)); }
+.card--photo .card__body { padding: 22px 24px 26px; }
+.card--photo .card__body h3 { margin-bottom: 8px; }
+.card--photo .card__body p { color: var(--muted); font-size: 0.95rem; }
+
+@media (max-width: 600px){
+  .media-band__content { padding: 28px 22px; }
+  .media-band__scrim { background: linear-gradient(180deg, rgba(10,12,16,0.5), rgba(10,12,16,0.9)); }
+}
