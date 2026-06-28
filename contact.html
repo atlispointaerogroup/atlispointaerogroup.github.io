@@ -1,120 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact AtlisPoint Aero Group — advisory, transactions, capital, and full-lifecycle aircraft asset services. Tell us what you're working on and we'll respond the same day.">
   <title>Contact &mdash; AtlisPoint Aero Group</title>
   <link rel="icon" type="image/png" href="transparent-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-  <header>
-    <div class="container topbar">
-      <div class="brand">
-        <img src="transparent-logo.png" class="brand-logo">
-      </div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="index.html#services">Services</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+  <header class="nav scrolled" id="nav">
+    <a class="nav__brand" href="index.html" aria-label="AtlisPoint Aero Group home">
+      <img src="transparent-logo.png" alt="AtlisPoint Aero Group logo">
+      <span>AtlisPoint Aero Group</span>
+    </a>
+    <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#serve">Who We Serve</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav__cta active">Get in Touch</a>
+    </nav>
+  </header>
+
+  <header class="page-head">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1>Every Engagement Starts with a Conversation.</h1>
+      <p>Tell us what you're working on &mdash; a sale, an acquisition, capital, or an aircraft on the move &mdash; and we'll respond the same day.</p>
     </div>
   </header>
 
-  <div class="page-hero">
-    <div class="container">
-      <h1>Contact</h1>
-      <p>Whether it's an aircraft recovery or ferry, a lease transition, an asset management mandate, or a remarketing or transaction need &mdash; tell us what you're working on. We respond the same day.</p>
-    </div>
-  </div>
+  <hr class="line-divider">
 
-  <div class="image-block" style="height: 360px; background-image: url('https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=1800&q=85&auto=format&fit=crop');"></div>
-
-  <section class="section reveal">
+  <main class="section">
     <div class="container">
       <div class="contact-grid">
-
-        <div class="contact-info">
-          <span class="section-label">Get in Touch</span>
-          <h2>Direct contact</h2>
-          <p style="margin-bottom: 28px;">If you have a time-sensitive matter, email us directly. For everything else, use the form and we will follow up promptly.</p>
-
-          <div class="contact-detail">
-            <span class="label">Email</span>
-            <a href="mailto:info@atlispoint.com">info@atlispoint.com</a>
-          </div>
-
-          <div class="contact-detail">
-            <span class="label">Response Time</span>
-            <span style="font-size: 17px; font-weight: 600; color: var(--text);">Same business day</span>
-          </div>
-
-          <hr class="divider-line">
-
-          <h3 style="margin-bottom: 12px;">What to include</h3>
-          <p style="margin-bottom: 8px;">&mdash; Your desired timeline</p>
-          <p style="margin-bottom: 8px;">&mdash; Scope of work (even a rough outline helps)</p>
-          <p style="margin-bottom: 8px;">&mdash; Aircraft type, if relevant</p>
-          <p>&mdash; Any constraints or dependencies</p>
-        </div>
-
-        <div>
-          <span class="section-label">Send a Message</span>
-          <h2>Contact form</h2>
-          <form id="contact-form" style="margin-top: 24px;">
-            <label for="fullName">Full name</label>
-            <input id="fullName" name="fullName" type="text" placeholder="Your full name" autocomplete="name" required>
-
-            <label for="email">Email address</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
-
-            <label for="message">How can we help?</label>
-            <textarea id="message" name="message" rows="6" placeholder="Describe what you need..." required></textarea>
-
-            <button class="btn btn-dark" type="submit" style="width: 100%; justify-content: center;">Send Message</button>
-            <div class="form-hint" id="hint"></div>
+        <section aria-labelledby="form-heading">
+          <h2 id="form-heading" class="section-title" style="font-size:1.6rem;">Send us a message</h2>
+          <form id="contact-form" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="org">Organization</label>
+              <input type="text" id="org" name="org" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="topic">I'm interested in</label>
+              <select id="topic" name="topic">
+                <option value="">Select an option</option>
+                <option>M&amp;A / Sell-Side</option>
+                <option>M&amp;A / Buy-Side</option>
+                <option>Capital Raising</option>
+                <option>Brokerage &amp; Remarketing</option>
+                <option>Recovery &amp; Repossession</option>
+                <option>Ferry &amp; Positioning Flights</option>
+                <option>Lease Transition &amp; Redelivery</option>
+                <option>Asset &amp; Lease Management</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">Send Message</button>
+            <p class="form-note">This opens your email client addressed to info@atlispoint.com. Prefer to write directly? <a class="maillink" href="mailto:info@atlispoint.com">info@atlispoint.com</a></p>
           </form>
-        </div>
+        </section>
 
+        <aside class="contact-aside" aria-label="Contact details">
+          <div class="card">
+            <span class="card__tag">Email</span>
+            <h3>Reach us directly</h3>
+            <p><a class="maillink" href="mailto:info@atlispoint.com">info@atlispoint.com</a></p>
+            <p style="margin-top:10px;">We respond the same day.</p>
+          </div>
+          <div class="card">
+            <span class="card__tag">Who we help</span>
+            <h3>One partner, every side of the aircraft</h3>
+            <p>FBOs, charter &amp; Part 135 operators, flight departments, flight schools, operators &amp; airlines, and lenders, lessors &amp; investors.</p>
+          </div>
+          <div class="card">
+            <span class="card__tag">Global</span>
+            <h3>Across any jurisdiction</h3>
+            <p>From short-notice ferry flights to end-of-lease handovers and transaction close &mdash; worldwide.</p>
+          </div>
+        </aside>
       </div>
     </div>
-  </section>
+  </main>
 
-  <footer>
+  <footer class="footer">
     <div class="container">
-      AtlisPoint Aero Group &nbsp;&middot;&nbsp; <a href="mailto:info@atlispoint.com">info@atlispoint.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a>
+      <div class="footer__brand">
+        <img src="transparent-logo.png" alt="AtlisPoint Aero Group logo">
+        <span>AtlisPoint Aero Group</span>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="mailto:info@atlispoint.com">info@atlispoint.com</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </nav>
+      <p class="footer__meta">&copy; AtlisPoint Aero Group &middot; <a href="mailto:info@atlispoint.com">info@atlispoint.com</a> &middot; One partner for the aviation businesses and investors who own, operate, and finance aircraft.</p>
     </div>
   </footer>
 
-  <script>
-    const io = new IntersectionObserver(
-      entries => entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
-      }),
-      { threshold: 0.1 }
-    );
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    document.getElementById('contact-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('fullName').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      if (!name || !email || !message) {
-        document.getElementById('hint').textContent = 'Please fill in all fields.';
-        return;
-      }
-      const subject = encodeURIComponent('Website inquiry from ' + name);
-      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
-      window.location.href = 'mailto:info@atlispoint.com?subject=' + subject + '&body=' + body;
-      document.getElementById('hint').textContent = 'Opening your email app...';
-    });
-  </script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
