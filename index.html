@@ -1,140 +1,226 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AtlisPoint Aero Group — one partner for the aviation businesses and investors who own, operate, and finance aircraft. Advisory, transactions, capital, and full-lifecycle aircraft asset services worldwide.">
   <title>AtlisPoint Aero Group</title>
   <link rel="icon" type="image/png" href="transparent-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-  <header>
-    <div class="container topbar">
-      <div class="brand">
-        <img src="transparent-logo.png" class="brand-logo">
-      </div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="index.html#services">Services</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="index.html" aria-label="AtlisPoint Aero Group home">
+      <img src="transparent-logo.png" alt="AtlisPoint Aero Group logo">
+      <span>AtlisPoint Aero Group</span>
+    </a>
+    <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html" class="active">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#serve">Who We Serve</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav__cta">Get in Touch</a>
+    </nav>
   </header>
 
-  <section class="hero">
-    <div class="container hero-inner">
-      <h1>Aircraft Asset Services,<br>Across the Lifecycle</h1>
-      <p>Recovery, ferry, transition, management, and remarketing for operators, lenders, lessors, and investors worldwide.</p>
-      <div class="cta-group">
-        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
-        <a href="about.html" class="btn btn-ghost">Learn More</a>
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero__canvas">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero__poster" role="img" aria-label="Wireframe aircraft illustration" style="background-image:url('takeoff.jpg');"></div>
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="hero__scanline" aria-hidden="true"></div>
+    <div class="container hero__content">
+      <span class="eyebrow">AtlisPoint Aero Group</span>
+      <h1>Advisory &amp; Aircraft Asset Services, <span class="accent">Across the Lifecycle</span></h1>
+      <p class="hero__sub">Sale, acquisition, capital, and full-lifecycle asset support for FBOs, charter operators, flight departments, flight schools, lenders, and lessors worldwide.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="contact.html">Get in Touch</a>
+        <a class="btn btn--ghost" href="#services">Learn More</a>
       </div>
+    </div>
+    <div class="hero__hud" aria-hidden="true">
+      <div>OWN &middot; OPERATE &middot; <span>FINANCE</span></div>
+      <div>GLOBAL &middot; <span>ALL JURISDICTIONS</span></div>
     </div>
   </section>
 
-  <section id="services" class="section reveal">
+  <hr class="line-divider">
+
+  <!-- ============ POSITIONING / INTRO ============ -->
+  <section class="section" id="overview">
     <div class="container">
-      <div class="section-heading">
-        <span class="section-label">What We Do</span>
-        <h2>Full-Lifecycle Aircraft Asset Services</h2>
-        <p style="max-width: 680px; margin-top: 12px;">From recovery and repositioning through management, remarketing, and transaction close, we are a single partner for the operators, lenders, lessors, and investors who own and finance aircraft.</p>
+      <span class="eyebrow reveal">One Partner</span>
+      <h2 class="section-title reveal">For the aviation businesses and investors who own, operate, and finance aircraft.</h2>
+      <p class="section-intro reveal">AtlisPoint Aero Group brings advisory, transactions, capital, and hands-on aircraft asset services under one roof — so owners, operators, and investors have a single partner across the full lifecycle of an aircraft and a business.</p>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section" id="services">
+    <div class="container">
+      <span class="eyebrow reveal">Services</span>
+      <h2 class="section-title reveal">What We Do</h2>
+      <p class="section-intro reveal">Two connected practices — advisory and transactions on one side, hands-on aircraft asset services on the other.</p>
+
+      <div class="group-block reveal">
+        <div class="group-head">
+          <span class="group-kicker">Group A</span>
+          <h3>Advisory &amp; Transactions</h3>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg></div>
+            <h3>M&amp;A Advisory (Sell-Side &amp; Buy-Side)</h3>
+            <p>Represent owners selling their business and buyers making acquisitions across FBOs, charter operators, and flight schools.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M7 8h7a3 3 0 010 6H7m0 0h8"/></svg></div>
+            <h3>Capital Raising</h3>
+            <p>Arrange equity and debt for fleet growth, expansion, and acquisitions.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
+            <h3>Business Brokerage &amp; Remarketing</h3>
+            <p>Placement and sale of aircraft and aviation businesses.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg></div>
+            <h3>Transaction Support</h3>
+            <p>Title search, escrow coordination, deregistration, and closing logistics.</p>
+          </article>
+        </div>
       </div>
 
-      <div class="grid-3">
-        <div class="card reveal reveal-1">
-          <div class="card-body">
+      <div class="group-block reveal">
+        <div class="group-head">
+          <span class="group-kicker">Group B</span>
+          <h3>Aircraft Asset Services</h3>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h7l3-7 2 7h6M5 16h14"/></svg></div>
             <h3>Aircraft Recovery &amp; Repossession</h3>
             <p>Repossession coordination, jurisdictional navigation, and physical aircraft return for lenders and lessors.</p>
-          </div>
-        </div>
-        <div class="card reveal reveal-2">
-          <div class="card-body">
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 16l20-7-9 12-2-5-9 0z"/></svg></div>
             <h3>Ferry &amp; Positioning Flights</h3>
-            <p>Global aircraft repositioning with full operational control, permits, crew, and regulatory compliance.</p>
-          </div>
-        </div>
-        <div class="card reveal reveal-3">
-          <div class="card-body">
+            <p>Global repositioning with full operational control, permits, crew, and regulatory compliance.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7l8-4 8 4-8 4-8-4zM4 7v10l8 4 8-4V7"/></svg></div>
             <h3>Lease Transition &amp; Redelivery</h3>
             <p>End-of-lease handovers, redelivery condition management, inspections, and records.</p>
-          </div>
-        </div>
-        <div class="card reveal reveal-1">
-          <div class="card-body">
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></div>
             <h3>Aircraft Asset &amp; Lease Management</h3>
             <p>Commercial lease administration and asset oversight for owners, investors, and lenders.</p>
-          </div>
-        </div>
-        <div class="card reveal reveal-2">
-          <div class="card-body">
-            <h3>Remarketing &amp; Business Brokerage</h3>
-            <p>Placement and sale of aircraft and aviation businesses for owners, lessors, and investors.</p>
-          </div>
-        </div>
-        <div class="card reveal reveal-3">
-          <div class="card-body">
-            <h3>Transaction Support</h3>
-            <p>Title search, escrow coordination, deregistration, and closing logistics on aircraft transactions.</p>
-          </div>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="image-block reveal" style="background-image: url('https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=1800&q=85&auto=format&fit=crop');"></div>
+  <hr class="line-divider">
 
-  <section class="section section--grey reveal">
+  <!-- ============ WHO WE SERVE ============ -->
+  <section class="section" id="serve">
     <div class="container">
-      <div class="section-heading">
-        <span class="section-label">How We Work</span>
-        <h2>Disciplined Coordination from Day One</h2>
-      </div>
-      <div class="grid">
-        <div class="card reveal reveal-1">
-          <div class="card-body">
-            <h3>Operators &amp; Airlines</h3>
-            <p>We support aircraft movements, fleet transitions, and redelivery &mdash; from short-notice ferry operations to end-of-lease handovers &mdash; keeping your schedule intact and your assets accounted for across any jurisdiction.</p>
-          </div>
-        </div>
-        <div class="card reveal reveal-2">
-          <div class="card-body">
-            <h3>Lenders &amp; Lessors</h3>
-            <p>We manage recovery, repossession, asset oversight, and remarketing &mdash; from full repossession through resale and transaction close &mdash; protecting the value of your aircraft across complex markets.</p>
-          </div>
-        </div>
+      <span class="eyebrow reveal">Who We Serve</span>
+      <h2 class="section-title reveal">Built for every side of the aircraft</h2>
+      <p class="section-intro reveal">From operators on the ramp to the lenders behind the asset — AtlisPoint serves the full ecosystem.</p>
+      <div class="card-grid">
+        <article class="card serve-card reveal">
+          <span class="card__tag">Facilities</span>
+          <h3><span class="num">01</span> FBOs</h3>
+          <p>Sell at the best price and terms, acquire, or raise capital to expand facilities and hangars.</p>
+        </article>
+        <article class="card serve-card reveal">
+          <span class="card__tag">Part 135</span>
+          <h3><span class="num">02</span> Charter / Part 135 Operators</h3>
+          <p>Growth capital and fleet expansion, or a sale to the right buyer — including value for your Part 135 certificate.</p>
+        </article>
+        <article class="card serve-card reveal">
+          <span class="card__tag">Corporate</span>
+          <h3><span class="num">03</span> Flight Departments</h3>
+          <p>Aircraft acquisition and disposition, transitions, and asset oversight for corporate and private operators.</p>
+        </article>
+        <article class="card serve-card reveal">
+          <span class="card__tag">Training</span>
+          <h3><span class="num">04</span> Flight Schools</h3>
+          <p>Capital to add aircraft and instructors and meet pilot demand; partnerships and succession planning.</p>
+        </article>
+        <article class="card serve-card reveal">
+          <span class="card__tag">Fleet</span>
+          <h3><span class="num">05</span> Operators &amp; Airlines</h3>
+          <p>Fleet movements, transitions, and redelivery — short-notice ferry through end-of-lease handover, schedule intact across any jurisdiction.</p>
+        </article>
+        <article class="card serve-card reveal">
+          <span class="card__tag">Capital</span>
+          <h3><span class="num">06</span> Lenders, Lessors &amp; Investors</h3>
+          <p>Recovery, repossession, asset oversight, and remarketing — from full repossession through resale and transaction close.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section section--dark reveal">
-    <div class="container" style="text-align: center; max-width: 680px;">
-      <span class="section-label" style="color: #888;">Ready to Work Together?</span>
-      <h2 style="color: #ffffff; margin-bottom: 16px;">Every Engagement Starts with a Conversation.</h2>
-      <p style="color: #aaaaaa; margin-bottom: 36px;">Tell us what you're working on and we'll respond the same day.</p>
-      <a href="contact.html" class="btn btn-primary">Contact AtlisPoint</a>
-    </div>
-  </section>
+  <hr class="line-divider">
 
-  <footer>
+  <!-- ============ HOW WE WORK ============ -->
+  <section class="section" id="how">
     <div class="container">
-      AtlisPoint Aero Group &nbsp;&middot;&nbsp; <a href="mailto:info@atlispoint.com">info@atlispoint.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a>
+      <span class="eyebrow reveal">How We Work</span>
+      <h2 class="section-title reveal">A clear path from conversation to close</h2>
+      <div class="card-grid">
+        <article class="card step reveal"><h3>Understand</h3><p>We start by understanding your aircraft, business, and objective — whether that's a sale, an acquisition, capital, or an asset on the move.</p></article>
+        <article class="card step reveal"><h3>Structure</h3><p>We shape the right approach — advisory, transaction structure, capital, or operational plan — and the parties needed to deliver it.</p></article>
+        <article class="card step reveal"><h3>Execute</h3><p>From permits and crew to escrow and closing logistics, we run the engagement with full operational and regulatory control.</p></article>
+        <article class="card step reveal"><h3>Close &amp; Transition</h3><p>We see it through to close, redelivery, or handover — records in order and the schedule intact.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="section" id="contact-cta">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Every Engagement Starts with a Conversation.</h2>
+        <p>Tell us what you're working on and we'll respond the same day.</p>
+        <a class="btn btn--primary" href="contact.html">Contact AtlisPoint</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__brand">
+        <img src="transparent-logo.png" alt="AtlisPoint Aero Group logo">
+        <span>AtlisPoint Aero Group</span>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="mailto:info@atlispoint.com">info@atlispoint.com</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </nav>
+      <p class="footer__meta">&copy; AtlisPoint Aero Group &middot; <a href="mailto:info@atlispoint.com">info@atlispoint.com</a> &middot; One partner for the aviation businesses and investors who own, operate, and finance aircraft.</p>
     </div>
   </footer>
 
-  <script>
-    const io = new IntersectionObserver(
-      entries => entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
-      }),
-      { threshold: 0.1 }
-    );
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  </script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
