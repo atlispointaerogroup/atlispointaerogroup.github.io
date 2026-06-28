@@ -1,101 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About AtlisPoint Aero Group — a specialist advisory and aircraft asset-services firm for the aviation businesses and investors who own, operate, and finance aircraft.">
   <title>About &mdash; AtlisPoint Aero Group</title>
   <link rel="icon" type="image/png" href="transparent-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-  <header>
-    <div class="container topbar">
-      <div class="brand">
-        <img src="transparent-logo.png" class="brand-logo">
-      </div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="index.html#services">Services</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+  <header class="nav scrolled" id="nav">
+    <a class="nav__brand" href="index.html" aria-label="AtlisPoint Aero Group home">
+      <img src="transparent-logo.png" alt="AtlisPoint Aero Group logo">
+      <span>AtlisPoint Aero Group</span>
+    </a>
+    <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#serve">Who We Serve</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html" class="nav__cta">Get in Touch</a>
+    </nav>
+  </header>
+
+  <header class="page-head">
+    <div class="container">
+      <span class="eyebrow">About</span>
+      <h1>One partner across the lifecycle of an aircraft.</h1>
+      <p>AtlisPoint Aero Group is a specialist advisory and aircraft asset-services firm for the aviation businesses and investors who own, operate, and finance aircraft.</p>
     </div>
   </header>
 
-  <div class="page-hero">
-    <div class="container">
-      <h1>About AtlisPoint</h1>
-      <p>We are a specialist aircraft asset services firm working across the full ownership lifecycle &mdash; recovery, ferry, transition, management, remarketing, and transaction support &mdash; for operators, lenders, lessors, and investors worldwide.</p>
-    </div>
-  </div>
+  <hr class="line-divider">
 
-  <section class="section reveal">
+  <main class="section">
     <div class="container">
-      <div class="grid">
-        <div>
-          <span class="section-label">Who We Are</span>
-          <h2>Built for Complex Aviation Environments</h2>
-          <p style="margin-bottom: 16px;">AtlisPoint Aero Group was founded by aviation professionals with deep experience in aircraft operations, regulatory compliance, and asset management. We work where others won't &mdash; across jurisdictions, time zones, and operational constraints.</p>
-          <p style="margin-bottom: 16px;">Our team brings together pilots, technical specialists, and logistics coordinators who have executed hundreds of aircraft movements across six continents. We carry that same discipline through every stage of the asset lifecycle &mdash; from recovery and repositioning to lease management, remarketing, and transaction close.</p>
-          <p>We operate with a single standard: every engagement is handled with the same precision and accountability we would expect if it were our own asset.</p>
-        </div>
-        <div>
-          <span class="section-label">Our Focus</span>
-          <h2>Our Core Disciplines</h2>
-          <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 8px;">
-            <div style="border-left: 2px solid var(--charcoal); padding-left: 20px;">
-              <h3 style="margin-bottom: 6px;">Recovery &amp; Repossession</h3>
-              <p>Repossession, jurisdictional navigation, and physical aircraft return for lenders and lessors.</p>
-            </div>
-            <div style="border-left: 2px solid var(--charcoal); padding-left: 20px;">
-              <h3 style="margin-bottom: 6px;">Ferry &amp; Transition</h3>
-              <p>Global aircraft positioning, end-of-lease redelivery, inspections, and records management.</p>
-            </div>
-            <div style="border-left: 2px solid var(--charcoal); padding-left: 20px;">
-              <h3 style="margin-bottom: 6px;">Asset &amp; Lease Management</h3>
-              <p>Commercial lease administration and asset oversight for owners, investors, and lenders.</p>
-            </div>
-            <div style="border-left: 2px solid var(--charcoal); padding-left: 20px;">
-              <h3 style="margin-bottom: 6px;">Remarketing &amp; Transaction Support</h3>
-              <p>Placement and sale of aircraft, with title, escrow, deregistration, and closing coordination.</p>
-            </div>
-          </div>
-        </div>
+      <div class="prose">
+        <p class="reveal">We bring advisory, transactions, capital, and hands-on aircraft asset services together under one roof. That means owners, operators, and investors can work with a single partner from a first conversation through a sale, an acquisition, a capital raise, or the physical movement and redelivery of an aircraft.</p>
+
+        <h2 class="reveal">What we do</h2>
+        <p class="reveal">Our work spans two connected practices. On the advisory and transactions side, we handle sell-side and buy-side M&amp;A, capital raising, business brokerage and remarketing, and the transaction support — title search, escrow, deregistration, and closing logistics — that gets a deal to close. On the aircraft asset-services side, we manage recovery and repossession, ferry and positioning flights, lease transition and redelivery, and ongoing asset and lease management.</p>
+
+        <h2 class="reveal">Who we serve</h2>
+        <p class="reveal">We work across the full ecosystem of an aircraft and the businesses around it:</p>
+        <ul class="reveal">
+          <li><strong>FBOs</strong> &mdash; selling at the best price and terms, acquiring, or raising capital to expand facilities and hangars.</li>
+          <li><strong>Charter / Part 135 operators</strong> &mdash; growth capital and fleet expansion, or a sale that captures the value of a Part 135 certificate.</li>
+          <li><strong>Flight departments</strong> &mdash; acquisition, disposition, transitions, and asset oversight for corporate and private operators.</li>
+          <li><strong>Flight schools</strong> &mdash; capital to add aircraft and instructors, plus partnerships and succession planning.</li>
+          <li><strong>Operators &amp; airlines</strong> &mdash; fleet movements, transitions, and redelivery across any jurisdiction.</li>
+          <li><strong>Lenders, lessors &amp; investors</strong> &mdash; recovery, repossession, asset oversight, and remarketing through resale and close.</li>
+        </ul>
+
+        <h2 class="reveal">How we work</h2>
+        <p class="reveal">Every engagement starts with understanding the aircraft, the business, and the objective. From there we structure the right approach, assemble the parties needed to deliver it, and run the engagement with full operational and regulatory control &mdash; through to close, redelivery, or handover, with records in order and the schedule intact.</p>
+
+        <p class="reveal">Wherever you sit &mdash; owner, operator, or investor &mdash; AtlisPoint is built to be the one partner you call.</p>
+
+        <p class="reveal"><a href="contact.html">Start a conversation &rarr;</a></p>
+      </div>
+    </div>
+  </main>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Every Engagement Starts with a Conversation.</h2>
+        <p>Tell us what you're working on and we'll respond the same day.</p>
+        <a class="btn btn--primary" href="contact.html">Contact AtlisPoint</a>
       </div>
     </div>
   </section>
 
-  <div class="image-block reveal" style="background-image: url('https://images.unsplash.com/photo-1551403793-813bd2ab3fe8?w=1800&q=85&auto=format&fit=crop');"></div>
-
-  <section class="section section--grey reveal">
-    <div class="container" style="max-width: 720px;">
-      <span class="section-label">Our Approach</span>
-      <h2>Precision Over Volume</h2>
-      <p style="margin-bottom: 20px;">We deliberately keep our client base selective. Every engagement receives direct attention from senior team members &mdash; not passed down to junior staff once the contract is signed.</p>
-      <p style="margin-bottom: 20px;">This means faster decisions, cleaner communication, and fewer surprises. Our clients return because they know exactly what they're getting.</p>
-      <a href="contact.html" class="btn btn-dark" style="margin-top: 12px;">Work with Us</a>
-    </div>
-  </section>
-
-  <footer>
+  <footer class="footer">
     <div class="container">
-      AtlisPoint Aero Group &nbsp;&middot;&nbsp; <a href="mailto:info@atlispoint.com">info@atlispoint.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a>
+      <div class="footer__brand">
+        <img src="transparent-logo.png" alt="AtlisPoint Aero Group logo">
+        <span>AtlisPoint Aero Group</span>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="mailto:info@atlispoint.com">info@atlispoint.com</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </nav>
+      <p class="footer__meta">&copy; AtlisPoint Aero Group &middot; <a href="mailto:info@atlispoint.com">info@atlispoint.com</a> &middot; One partner for the aviation businesses and investors who own, operate, and finance aircraft.</p>
     </div>
   </footer>
 
-  <script>
-    const io = new IntersectionObserver(
-      entries => entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
-      }),
-      { threshold: 0.1 }
-    );
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  </script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
