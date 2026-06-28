@@ -312,3 +312,66 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
   .media-band__content { padding: 28px 22px; }
   .media-band__scrim { background: linear-gradient(180deg, rgba(10,12,16,0.5), rgba(10,12,16,0.9)); }
 }
+
+
+/* =========================================================
+   v3 OVERRIDES — realistic look, bigger logo, less blueprint
+   ========================================================= */
+:root {
+  /* Deeper, more neutral/realistic base (less electric-blue cast) */
+  --bg: #07090C;
+  --bg-2: #0B0E13;
+  --panel: #13171F;
+  --panel-2: #181D27;
+  --text: #EEF2F7;
+  --muted: #99A2B2;
+  /* Refined steel-blue accent instead of neon cyan */
+  --accent: #4C9BE0;
+  --accent-2: #2F6FB8;
+  --accent-dim: rgba(76, 155, 224, 0.12);
+  --border: rgba(150, 160, 178, 0.16);
+  --border-bright: rgba(76, 155, 224, 0.30);
+  --glow: 0 0 22px rgba(76, 155, 224, 0.22);
+}
+
+/* ---- Larger, cleaner logo ---- */
+.nav__brand img { height: 60px !important; width: auto !important; }
+.footer__brand img { height: 44px !important; }
+@media (max-width: 760px) {
+  .nav__brand img { height: 48px !important; }
+}
+
+/* ---- Reduce the "blueprint" feel: kill grid + scanline ---- */
+body::before {
+  background-image:
+    radial-gradient(ellipse 120% 90% at 50% -10%, rgba(36, 78, 130, 0.18), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 80% 110%, rgba(20, 40, 70, 0.16), transparent 60%) !important;
+  background-size: auto !important;
+  mask-image: none !important;
+  opacity: 1 !important;
+}
+.hero__scanline { display: none !important; }
+
+/* ---- Hero backdrop: soft cinematic gradient, no wire mesh tint ---- */
+.hero {
+  background:
+    radial-gradient(ellipse 70% 80% at 72% 42%, rgba(40, 92, 150, 0.22), transparent 62%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%) !important;
+}
+
+/* ---- Cleaner, less grainy photo media bands ---- */
+.media-band__bg {
+  filter: saturate(1.12) contrast(1.06) brightness(1.04) !important;
+  image-rendering: auto !important;
+}
+.media-band__grid { opacity: 0.18 !important; }
+.media-band::after {
+  content: "";
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(7,9,12,0.86) 0%, rgba(7,9,12,0.55) 42%, rgba(7,9,12,0.20) 100%);
+}
+.media-band__bg { z-index: 0 !important; }
+.media-band > *:not(.media-band__bg):not(.media-band__grid) { position: relative; z-index: 2; }
+
+/* ---- Buttons / accents pick up the calmer accent automatically via vars ---- */
+.btn--primary { box-shadow: 0 6px 24px rgba(47, 111, 184, 0.32); }
