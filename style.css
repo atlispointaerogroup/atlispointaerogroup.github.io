@@ -381,3 +381,156 @@ body::before {
 .nav__brand img { height: 74px !important; }
 .footer__brand img { height: 52px !important; }
 @media (max-width: 760px) { .nav__brand img { height: 52px !important; } }
+
+
+/* =========================================================
+   v4 — LIGHT, PROFESSIONAL + TACTICAL THEME (full override)
+   ========================================================= */
+:root {
+  --bg:        #F4F5F3;   /* warm light base */
+  --bg-2:      #ECEEEB;
+  --panel:     #FFFFFF;
+  --panel-2:   #F7F8F6;
+  --text:      #1B2026;   /* near-black slate */
+  --muted:     #5A6470;   /* slate gray */
+  --accent:    #3A4F3C;   /* tactical olive-green */
+  --accent-2:  #2C4A63;   /* deep steel-blue */
+  --accent-dim: rgba(58, 79, 60, 0.10);
+  --border:    rgba(27, 32, 38, 0.12);
+  --border-bright: rgba(44, 74, 99, 0.35);
+  --glow:      0 2px 14px rgba(27, 32, 38, 0.08);
+  --radius:    10px;
+}
+
+html, body { background: var(--bg) !important; color: var(--text) !important; }
+
+/* Kill the dark backdrop / grid / scanline entirely */
+body::before { display: none !important; }
+.hero__scanline { display: none !important; }
+
+/* ---- Logo: bigger + NO invert (dark mark on light bg) ---- */
+.nav__brand img { height: 92px !important; width: auto !important; filter: none !important; }
+.footer__brand img { height: 64px !important; filter: none !important; }
+@media (max-width: 760px){ .nav__brand img { height: 60px !important; } }
+
+/* ---- Nav: clean white bar with hairline ---- */
+.nav {
+  background: rgba(255,255,255,0.92) !important;
+  border-bottom: 1px solid var(--border) !important;
+  backdrop-filter: saturate(1.1) blur(8px) !important;
+}
+.nav__brand span { color: var(--text) !important; }
+.nav__links a { color: var(--muted) !important; }
+.nav__links a:hover, .nav__links a.is-active { color: var(--accent-2) !important; }
+
+/* ---- Buttons: solid tactical, no neon glow ---- */
+.btn--primary {
+  background: var(--accent) !important; color: #fff !important;
+  box-shadow: none !important; border: 1px solid var(--accent) !important;
+}
+.btn--primary:hover { background: #2F4231 !important; }
+.btn--ghost, .btn--secondary {
+  background: transparent !important; color: var(--text) !important;
+  border: 1px solid var(--border) !important; box-shadow: none !important;
+}
+.btn--ghost:hover { border-color: var(--accent-2) !important; color: var(--accent-2) !important; }
+
+/* ---- Remove the OWN/OPERATE/JURISDICTIONS hero tag ---- */
+.hero__hud { display: none !important; }
+
+/* ---- Hero: light, airy ---- */
+.hero {
+  background:
+    radial-gradient(ellipse 60% 70% at 78% 40%, rgba(44,74,99,0.10), transparent 62%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%) !important;
+  color: var(--text) !important;
+}
+.hero h1, .hero__title { color: var(--text) !important; }
+.hero__title .accent, .hero h1 .accent, .hero h1 span { color: var(--accent-2) !important; }
+.hero p, .hero__sub { color: var(--muted) !important; }
+.eyebrow, .hero__eyebrow { color: var(--accent) !important; }
+
+
+/* ---- Cards: clean white, subtle border, soft shadow (no glass/neon) ---- */
+.card {
+  background: var(--panel) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 1px 3px rgba(27,32,38,0.06), 0 8px 24px rgba(27,32,38,0.05) !important;
+  border-radius: var(--radius) !important;
+  backdrop-filter: none !important;
+}
+.card:hover {
+  border-color: var(--border-bright) !important;
+  box-shadow: 0 4px 12px rgba(27,32,38,0.10), 0 16px 40px rgba(27,32,38,0.08) !important;
+}
+.card h3, .card h4, .card__title { color: var(--text) !important; }
+.card p, .card__desc { color: var(--muted) !important; }
+.card__icon {
+  background: var(--accent-dim) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border) !important;
+}
+.card__icon svg { stroke: var(--accent) !important; color: var(--accent) !important; }
+.card__tag { color: var(--accent-2) !important; background: rgba(44,74,99,0.08) !important; }
+
+/* ---- SERVICES ALIGNMENT FIX ----
+   Group A & Group B each have 4 cards. 3-col grids left an orphan card.
+   Use a clean 2x2 grid for those (and 4-up only on very wide screens). ---- */
+.services .card-grid,
+#services .card-grid,
+.card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+}
+/* Who-We-Serve (6 cards) reads best as 3 cols on wide screens */
+.card-grid:has(.serve-card) { grid-template-columns: repeat(3, minmax(0,1fr)) !important; }
+/* Process steps (4) stay 4-up on wide */
+.card-grid:has(.step) { grid-template-columns: repeat(4, minmax(0,1fr)) !important; }
+.card { height: 100% !important; }
+
+@media (max-width: 900px){
+  .card-grid, .card-grid:has(.serve-card), .card-grid:has(.step){
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+@media (max-width: 600px){
+  .card-grid, .card-grid:has(.serve-card), .card-grid:has(.step){
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ---- Section headings / eyebrows ---- */
+section h2, .section__title { color: var(--text) !important; }
+.section__eyebrow, .group-label, [class*="GROUP"] { color: var(--accent) !important; }
+.line-divider, hr.line-divider {
+  border: 0 !important; height: 1px !important;
+  background: var(--border) !important; opacity: 1 !important; box-shadow: none !important;
+}
+
+/* ---- Footer ---- */
+.footer, footer {
+  background: var(--bg-2) !important; color: var(--muted) !important;
+  border-top: 1px solid var(--border) !important;
+}
+.footer a, footer a { color: var(--accent-2) !important; }
+.footer__brand span { color: var(--text) !important; }
+
+/* ---- Media bands: keep photo but lighten overlay for light theme ---- */
+.media-band__grid { display: none !important; }
+.media-band::after {
+  content: "" !important; position: absolute !important; inset: 0 !important;
+  z-index: 1 !important; pointer-events: none !important;
+  background: linear-gradient(90deg, rgba(20,24,28,0.72) 0%, rgba(20,24,28,0.40) 45%, rgba(20,24,28,0.10) 100%) !important;
+}
+.media-band__bg {
+  filter: saturate(1.04) contrast(1.03) brightness(1.0) !important;
+  z-index: 0 !important;
+}
+.media-band > *:not(.media-band__bg) { position: relative; z-index: 2; }
+
+/* ---- Reveals visible by default (avoid blank look) ---- */
+.reveal { opacity: 1 !important; }
+
+/* ---- Scroll progress bar uses accent ---- */
+.scroll-progress { background: var(--accent) !important; }
