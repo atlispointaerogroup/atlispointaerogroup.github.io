@@ -568,3 +568,33 @@ section h2, .section__title { color: var(--text) !important; }
 .media-band, .media-band h2, .media-band h3, .media-band p { color: #EAF0F4 !important; }
 .media-band p { color: #B7C2CC !important; }
 .media-band .eyebrow, .media-band .section__eyebrow { color: #9FE6C9 !important; }
+
+
+/* =========================================================
+   v4.2 — Position globe to the RIGHT, keep headline clean
+   ========================================================= */
+.hero { position: relative !important; overflow: hidden !important; }
+#hero-canvas, .hero canvas, .hero__canvas {
+  position: absolute !important;
+  top: 50% !important;
+  right: -6% !important;
+  left: auto !important;
+  transform: translateY(-50%) !important;
+  width: 60% !important;
+  height: 100% !important;
+  max-width: 760px !important;
+  opacity: 0.92 !important;
+  z-index: 0 !important;
+  /* fade the left edge so it never collides with the headline text */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 26%, #000 100%) !important;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 26%, #000 100%) !important;
+  pointer-events: none !important;
+}
+/* keep hero text above the globe */
+.hero__inner, .hero__content, .hero .container, .hero > .wrap, .hero__copy { position: relative !important; z-index: 2 !important; }
+.hero h1, .hero p, .hero__actions, .eyebrow, .hero__eyebrow { position: relative !important; z-index: 2 !important; }
+
+@media (max-width: 900px){
+  #hero-canvas, .hero canvas { opacity: 0.28 !important; width: 100% !important; right: 0 !important;
+    -webkit-mask-image: none !important; mask-image: none !important; }
+}
