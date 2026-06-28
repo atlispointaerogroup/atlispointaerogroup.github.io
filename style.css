@@ -375,3 +375,9 @@ body::before {
 
 /* ---- Buttons / accents pick up the calmer accent automatically via vars ---- */
 .btn--primary { box-shadow: 0 6px 24px rgba(47, 111, 184, 0.32); }
+
+
+/* v3.1 — bump logo a touch larger */
+.nav__brand img { height: 74px !important; }
+.footer__brand img { height: 52px !important; }
+@media (max-width: 760px) { .nav__brand img { height: 52px !important; } }
