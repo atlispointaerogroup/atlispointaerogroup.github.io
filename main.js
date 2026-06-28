@@ -135,13 +135,13 @@
     // Light ocean sphere (soft slate-blue), matte
     var ocean = new THREE.Mesh(
       new THREE.SphereGeometry(GLOBE_R, 64, 64),
-      new THREE.MeshStandardMaterial({ color: 0xc9d6e0, roughness: 0.95, metalness: 0.0 })
+      new THREE.MeshStandardMaterial({ color: 0x33485e, roughness: 0.9, metalness: 0.05 })
     );
     globe.add(ocean);
 
     // Very subtle graticule (light gray)
     var grat = new THREE.Group();
-    var gratMat = new THREE.LineBasicMaterial({ color: 0x8aa0b2, transparent: true, opacity: 0.16 });
+    var gratMat = new THREE.LineBasicMaterial({ color: 0x7f96aa, transparent: true, opacity: 0.28 });
     for (var la = -60; la <= 60; la += 30) {
       var pts = []; var rr = GLOBE_R * Math.cos(la*Math.PI/180)*1.002; var yy = GLOBE_R*Math.sin(la*Math.PI/180)*1.002;
       for (var t = 0; t <= 64; t++){ var a=(t/64)*Math.PI*2; pts.push(new THREE.Vector3(rr*Math.cos(a), yy, rr*Math.sin(a))); }
@@ -172,7 +172,7 @@
       var lat=b[0]+Math.random()*(b[1]-b[0]); var lon=b[2]+Math.random()*(b[3]-b[2]);
       var v=latLonToVec(lat,lon,GLOBE_R*1.004); landPos.push(v.x,v.y,v.z); }
     var landGeo=new THREE.BufferGeometry(); landGeo.setAttribute("position", new THREE.Float32BufferAttribute(landPos,3));
-    var land=new THREE.Points(landGeo, new THREE.PointsMaterial({ color:0x5b6b54, size:0.03, transparent:true, opacity:0.9, sizeAttenuation:true }));
+    var land=new THREE.Points(landGeo, new THREE.PointsMaterial({ color:0x9fb89a, size:0.03, transparent:true, opacity:0.95, sizeAttenuation:true }));
     globe.add(land);
 
     // Flight routes — dark tactical steel-blue arcs, dark plane dots
@@ -197,12 +197,12 @@
         var h=GLOBE_R+Math.sin(t*Math.PI)*lift; pts.push(v.multiplyScalar(h)); }
       var curve=new THREE.CatmullRomCurve3(pts);
       var geo=new THREE.BufferGeometry().setFromPoints(curve.getPoints(80));
-      var line=new THREE.Line(geo, new THREE.LineBasicMaterial({ color:0x2c4a63, transparent:true, opacity:0.0 }));
+      var line=new THREE.Line(geo, new THREE.LineBasicMaterial({ color:0x8fd0a8, transparent:true, opacity:0.0 }));
       routeGroup.add(line); arcs.push({line:line, appear:idx*0.1});
       [p0,p1].forEach(function(p){
-        var dot=new THREE.Mesh(new THREE.SphereGeometry(0.024,8,8), new THREE.MeshBasicMaterial({color:0x3a4f3c}));
+        var dot=new THREE.Mesh(new THREE.SphereGeometry(0.024,8,8), new THREE.MeshBasicMaterial({color:0xbfe8cf}));
         dot.position.copy(p.clone().normalize().multiplyScalar(GLOBE_R*1.01)); routeGroup.add(dot); });
-      var plane=new THREE.Mesh(new THREE.SphereGeometry(0.04,10,10), new THREE.MeshBasicMaterial({color:0x1b2026}));
+      var plane=new THREE.Mesh(new THREE.SphereGeometry(0.04,10,10), new THREE.MeshBasicMaterial({color:0xffffff}));
       routeGroup.add(plane); planes.push({mesh:plane, curve:curve, t:Math.random(), speed:0.04+Math.random()*0.05});
     });
 
@@ -223,7 +223,7 @@
       globe.rotation.y+=dt*0.06;
       curRX+=(targetRX-curRX)*0.05; curRY+=(targetRY-curRY)*0.05;
       root.rotation.x=curRX; root.rotation.y=curRY;
-      arcs.forEach(function(a){ var amt=Math.min(1,Math.max(0,(elapsed-a.appear)/1.2)); a.line.material.opacity=amt*0.7; });
+      arcs.forEach(function(a){ var amt=Math.min(1,Math.max(0,(elapsed-a.appear)/1.2)); a.line.material.opacity=amt*0.8; });
       planes.forEach(function(pl){ pl.t+=dt*pl.speed; if(pl.t>1) pl.t-=1; pl.mesh.position.copy(pl.curve.getPoint(pl.t)); });
       renderer.render(scene,camera); }
 
