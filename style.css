@@ -870,3 +870,12 @@ p, li, span:not(.card__tag):not(.num){ color:#444444 !important; }
 h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-kicker,.card__tag{ color:#0a0a0a !important; }
 .media-band h1,.media-band h2,.media-band h3,.cta-band h1,.cta-band h2,.cta-band h3{ color:#FFFFFF !important; }
 .media-band p,.media-band .group-kicker,.media-band .eyebrow{ color:#cfcfcf !important; }
+
+
+/* ===================================================================
+   v8.4 FIX — kill last blue tints: headline accent, sub, footer email
+   =================================================================== */
+.hero__content h1 .accent, .hero h1 .accent, h1 .accent, h2 .accent{ color:#0a0a0a !important; }
+.hero__sub, .hero__content .hero__sub{ color:#555555 !important; }
+.footer__meta, .footer__meta a, .footer a, .footer__links a{ color:#444444 !important; }
+.footer__meta a:hover, .footer a:hover{ color:#000000 !important; }
