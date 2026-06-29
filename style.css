@@ -1117,3 +1117,17 @@ h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-k
 @media (max-width:720px){
   .hero.hero--image{ min-height:64vh; }
 }
+
+
+/* ===== v14b: force white hero text over image (override earlier B&W !important rules) ===== */
+.hero.hero--image .eyebrow{ color:#ffffff !important; }
+.hero.hero--image h1,
+.hero.hero--image h1.accent,
+.hero.hero--image h1 .accent{ color:#ffffff !important; text-shadow:none !important; }
+.hero.hero--image .hero__sub{ color:#ececec !important; text-shadow:none !important; }
+.hero.hero--image .btn--primary{ background:#ffffff !important; color:#0a0a0a !important; border-color:#ffffff !important; }
+.hero.hero--image .btn--ghost{ color:#ffffff !important; border-color:rgba(255,255,255,0.75) !important; background:transparent !important; }
+/* widen overlay so text stays legible across full width */
+.hero.hero--image .hero__overlay{
+  background:linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.62) 55%, rgba(0,0,0,0.42) 100%) !important;
+}
