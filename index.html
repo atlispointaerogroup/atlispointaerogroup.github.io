@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="AtlisPoint Aero Group — one partner for the aviation businesses and investors who own, operate, and finance aircraft. Advisory, transactions, capital, and full-lifecycle aircraft asset services worldwide.">
   <title>AtlisPoint Aero Group</title>
-  <link rel="icon" type="image/png" href="favicon.png?v=8">
+  <link rel="icon" type="image/png" href="favicon.png?v=13">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=12">
+  <link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
   <div class="scroll-progress" aria-hidden="true"></div>
@@ -17,7 +17,6 @@
   <header class="nav" id="nav">
     <a class="nav__brand" href="index.html" aria-label="AtlisPoint Aero Group home">
       <img src="transparent-logo.png" alt="AtlisPoint Aero Group logo">
-      <span>AtlisPoint Aero Group</span>
     </a>
     <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
     <nav class="nav__links" aria-label="Primary">
@@ -30,27 +29,39 @@
   </header>
 
   <!-- ============ HERO ============ -->
-  <section class="hero" id="home">
-    <div class="hero__canvas">
-      <canvas id="hero-canvas" aria-hidden="true"></canvas>
-      <div class="hero__poster" role="img" aria-label="Aircraft at sunset" style="background-image:url('airliner-sunset.jpg');"></div>
-    </div>
-    <div class="hero__scrim" aria-hidden="true"></div>
-    <div class="hero__scanline" aria-hidden="true"></div>
-    <div class="container hero__content">
-      <span class="eyebrow">AtlisPoint Aero Group</span>
-      <h1>Advisory &amp; Aircraft Asset Services, <span class="accent">Across the Lifecycle</span></h1>
-      <p class="hero__sub">Sale, acquisition, capital, and full-lifecycle asset support for FBOs, charter operators, flight departments, flight schools, lenders, and lessors worldwide.</p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="contact.html">Get in Touch</a>
-        <a class="btn btn--ghost" href="#services">Learn More</a>
-      </div>
-    </div>
-    <div class="hero__hud" aria-hidden="true">
-      <div>OWN &middot; OPERATE &middot; <span>FINANCE</span></div>
-      <div>GLOBAL &middot; <span>ALL JURISDICTIONS</span></div>
-    </div>
-  </section>
+<section class="hero hero--route" id="home">
+        <div class="hero__motif" aria-hidden="true">
+          <svg class="route-svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" role="presentation">
+            <defs>
+              <radialGradient id="rg" cx="50%" cy="40%" r="70%">
+                <stop offset="0%" stop-color="#000" stop-opacity="0.06"/>
+                <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect x="0" y="0" width="1200" height="600" fill="url(#rg)"/>
+            <g class="route-grid" stroke="#000" stroke-opacity="0.05" stroke-width="1">
+              <line x1="0" y1="150" x2="1200" y2="150"/>
+              <line x1="0" y1="300" x2="1200" y2="300"/>
+              <line x1="0" y1="450" x2="1200" y2="450"/>
+            </g>
+            <path class="route-arc" d="M120,470 C400,120 800,120 1080,360" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/>
+            <circle class="route-node route-node--a" cx="120" cy="470" r="5" fill="#0a0a0a"/>
+            <circle class="route-node route-node--b" cx="1080" cy="360" r="5" fill="#0a0a0a"/>
+            <circle class="route-plane" r="4" fill="#0a0a0a">
+              <animateMotion class="route-anim" dur="6s" repeatCount="indefinite" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="linear" path="M120,470 C400,120 800,120 1080,360"/>
+            </circle>
+          </svg>
+        </div>
+        <div class="container hero__content">
+          <span class="eyebrow">AtlisPoint Aero Group</span>
+          <h1 class="accent">Advisory &amp; Aircraft Asset Services, Across the Lifecycle</h1>
+          <p class="hero__sub">Sale, acquisition, capital, and full-lifecycle asset support for FBOs, charter operators, flight departments, flight schools, lenders, and lessors worldwide.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="contact.html">Get in Touch</a>
+            <a class="btn btn--ghost" href="#services">Learn More</a>
+          </div>
+        </div>
+      </section>
 
   <hr class="line-divider">
 
@@ -253,6 +264,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="main.js?v=12" defer></script>
+  <script src="main.js?v=13" defer></script>
 </body>
 </html>
