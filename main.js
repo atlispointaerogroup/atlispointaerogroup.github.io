@@ -110,7 +110,7 @@
     var W = canvas.clientWidth || hero.clientWidth;
     var H = canvas.clientHeight || hero.clientHeight;
     var camera = new THREE.PerspectiveCamera(40, W / H, 0.1, 100);
-    camera.position.set(0, 0.4, 7.4);
+    camera.position.set(0, 0.25, 5.85);
 
     var renderer;
     try { renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); }
