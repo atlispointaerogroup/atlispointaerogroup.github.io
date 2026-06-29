@@ -1131,3 +1131,8 @@ h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-k
 .hero.hero--image .hero__overlay{
   background:linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.62) 55%, rgba(0,0,0,0.42) 100%) !important;
 }
+
+
+/* ===== v14c: final color audit fixes (B&W) ===== */
+.scroll-progress{ background:#0a0a0a !important; }
+.cta-band, .cta-band.reveal{ border-top-color:#e2e2e2 !important; border-color:#e2e2e2 !important; }
