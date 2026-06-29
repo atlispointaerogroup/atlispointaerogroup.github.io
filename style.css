@@ -1136,3 +1136,17 @@ h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-k
 /* ===== v14c: final color audit fixes (B&W) ===== */
 .scroll-progress{ background:#0a0a0a !important; }
 .cta-band, .cta-band.reveal{ border-top-color:#e2e2e2 !important; border-color:#e2e2e2 !important; }
+
+
+/* ===== v14d: comprehensive border B&W sweep ===== */
+.scroll-progress{ background:#0a0a0a !important; }
+.cta-band, .cta-band.reveal,
+.media-band, .media-band.reveal{
+  border-color:#e2e2e2 !important;
+  border-top-color:#e2e2e2 !important;
+  border-bottom-color:#e2e2e2 !important;
+  border-left-color:#e2e2e2 !important;
+  border-right-color:#e2e2e2 !important;
+}
+/* media-band is the dark charcoal band: keep its inner borders subtle on dark */
+.media-band{ border-color:rgba(255,255,255,0.14) !important; }
