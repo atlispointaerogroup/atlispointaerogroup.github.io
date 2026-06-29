@@ -879,3 +879,88 @@ h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-k
 .hero__sub, .hero__content .hero__sub{ color:#555555 !important; }
 .footer__meta, .footer__meta a, .footer a, .footer__links a{ color:#444444 !important; }
 .footer__meta a:hover, .footer a:hover{ color:#000000 !important; }
+
+
+/* ===== v13: Concept 3 — B&W route-motif hero ===== */
+.hero.hero--route{
+  position:relative;
+  background:#ffffff;
+  overflow:hidden;
+  padding:120px 0 110px;
+  border-bottom:1px solid #e2e2e2;
+}
+.hero.hero--route .hero__motif{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+.hero.hero--route .route-svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
+.hero.hero--route .route-arc{
+  stroke-dasharray:1600;
+  stroke-dashoffset:1600;
+  animation:routeDraw 6s ease-in-out forwards;
+}
+@keyframes routeDraw{
+  to{ stroke-dashoffset:0; }
+}
+.hero.hero--route .route-node{
+  opacity:0;
+  animation:routeNode 0.6s ease forwards;
+}
+.hero.hero--route .route-node--a{ animation-delay:0.4s; }
+.hero.hero--route .route-node--b{ animation-delay:5.4s; }
+@keyframes routeNode{
+  from{ opacity:0; transform:scale(0); transform-origin:center; }
+  to{ opacity:1; transform:scale(1); }
+}
+.hero.hero--route .hero__content{
+  position:relative;
+  z-index:2;
+  max-width:920px;
+}
+.hero.hero--route .eyebrow{
+  display:inline-block;
+  text-transform:uppercase;
+  letter-spacing:0.22em;
+  font-size:0.72rem;
+  font-weight:600;
+  color:#0a0a0a;
+  margin-bottom:1.1rem;
+}
+.hero.hero--route h1{
+  color:#0a0a0a;
+  text-shadow:none;
+  margin:0 0 1.4rem;
+}
+.hero.hero--route h1 .accent,
+.hero.hero--route h1.accent{ color:#0a0a0a; }
+.hero.hero--route .hero__sub{
+  color:#555555;
+  text-shadow:none;
+  filter:none;
+  background:none;
+  max-width:640px;
+  margin:0 0 2rem;
+}
+.hero.hero--route .hero__actions{ position:relative; z-index:2; }
+
+/* kill any residual halo/blur from old build on intros */
+.hero__sub,.section-intro{ text-shadow:none !important; }
+
+/* Hide any leftover old hero layers if present */
+.hero__canvas,.hero__poster,.hero__scrim,.hero__scanline,.hero__hud,#hero-canvas{ display:none !important; }
+
+@media (prefers-reduced-motion: reduce){
+  .hero.hero--route .route-arc{ animation:none; stroke-dashoffset:0; }
+  .hero.hero--route .route-node{ animation:none; opacity:1; }
+  .hero.hero--route .route-plane{ display:none; }
+}
+@media (max-width:720px){
+  .hero.hero--route{ padding:80px 0 70px; }
+  .hero.hero--route .route-svg{ opacity:0.7; }
+}
