@@ -824,3 +824,14 @@ h1,h2,h3,.section-title,.group-head,.hero__content h1{ color:#0a0a0a !important;
   background:#0a0a0a !important;
   margin-bottom:28px !important;
 }
+
+
+/* ===================================================================
+   v8.1 FIX — nav CTA white text, remove headline glow/shadow
+   =================================================================== */
+.nav .nav__cta, a.nav__cta, .nav__cta{ color:#FFFFFF !important; }
+.nav .nav__cta:hover, a.nav__cta:hover{ color:#FFFFFF !important; }
+.hero__content h1, .hero h1, h1, h2, h3{ text-shadow:none !important; }
+.hero__content h1{ filter:none !important; }
+/* ensure the rule motif sits above the headline cleanly */
+.hero__content::before{ margin-bottom:24px !important; opacity:1 !important; }
