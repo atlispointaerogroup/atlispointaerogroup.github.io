@@ -696,3 +696,32 @@ h1,h2,h3,.section-title,.group-head,.hero__content h1{
 
 /* Contained media bands (no grainy full-bleed) */
 .media-band__bg{ object-fit:cover !important; }
+
+
+/* ===================================================================
+   v6.1 FIX — nav CTA brand color, hero/globe overlap polish
+   =================================================================== */
+.nav__cta{
+  background:var(--bag-blue) !important;
+  border:1px solid var(--bag-blue) !important;
+  color:#FFFFFF !important;
+  text-transform:uppercase !important;
+  letter-spacing:0.08em !important;
+  font-weight:600 !important;
+  font-size:0.74rem !important;
+  border-radius:4px !important;
+  padding:12px 24px !important;
+  font-family:"Inter", sans-serif !important;
+  transition:background .2s ease !important;
+}
+.nav__cta:hover{ background:var(--bag-blue-dk) !important; border-color:var(--bag-blue-dk) !important; color:#fff !important; }
+
+/* Keep headline clear of the globe: stronger left fade so the globe
+   fully dissolves before the text column, and content stays narrower */
+.hero__content{ max-width:660px !important; position:relative !important; z-index:3 !important; }
+.hero__canvas, #hero-canvas{
+  -webkit-mask-image:linear-gradient(90deg, transparent 0%, transparent 34%, #000 62%) !important;
+          mask-image:linear-gradient(90deg, transparent 0%, transparent 34%, #000 62%) !important;
+}
+/* subtle white veil behind text so any globe bleed doesn't muddy it */
+.hero__content h1, .hero__content .hero__sub{ position:relative; }
