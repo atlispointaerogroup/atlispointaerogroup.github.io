@@ -1161,3 +1161,14 @@ h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-k
   border-right-color:#cfcfcf !important;
   color:#0a0a0a !important;
 }
+
+
+/* ===== v14f: neutralize remaining color CSS variables (B&W at source) ===== */
+:root{
+  --accent:#0a0a0a !important;
+  --accent-2:#0a0a0a !important;
+  --accent-dim:rgba(10,10,10,0.10) !important;
+  --border:rgba(0,0,0,0.14) !important;
+  --border-bright:rgba(0,0,0,0.30) !important;
+  --glow:0 0 0 rgba(0,0,0,0) !important;
+}
