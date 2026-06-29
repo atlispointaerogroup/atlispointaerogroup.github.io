@@ -835,3 +835,17 @@ h1,h2,h3,.section-title,.group-head,.hero__content h1{ color:#0a0a0a !important;
 .hero__content h1{ filter:none !important; }
 /* ensure the rule motif sits above the headline cleanly */
 .hero__content::before{ margin-bottom:24px !important; opacity:1 !important; }
+
+
+/* ===================================================================
+   v8.2 FIX — neutralize green icons + blue-tinted grays (full B&W)
+   =================================================================== */
+/* card icon chips: green tint -> neutral gray */
+.card__icon{ background:#f0f0f0 !important; border:1px solid #e2e2e2 !important; color:#0a0a0a !important; }
+.card__icon svg, .card__icon path, .card__icon *{ color:#0a0a0a !important; fill:#0a0a0a !important; stroke:#0a0a0a !important; }
+/* any other inline svg accents -> black */
+.card svg, .serve-card svg, .step svg, svg.icon{ color:#0a0a0a !important; fill:currentColor !important; stroke:currentColor !important; }
+
+/* neutralize blue-tinted body grays to pure neutral gray */
+.hero__sub, .section-intro, .section-intro p, .card p, .serve-card p, .step p{ color:#555555 !important; }
+.media-band__content p, .media-band p{ color:#cfcfcf !important; }
