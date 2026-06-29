@@ -608,3 +608,91 @@ section h2, .section__title { color: var(--text) !important; }
   background: linear-gradient(180deg, #FAFBF9 0%, #EEF0ED 100%) !important;
 }
 #hero-canvas, .hero canvas { opacity: 1 !important; }
+
+
+/* ===================================================================
+   v6 OVERRIDE — builderadvisorgroup-inspired advisory aesthetic
+   PT Serif headlines, white bg, steel-blue #6289A3, red accent
+   =================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bag-blue: #6289A3;
+  --bag-blue-deep: #557A92;
+  --bag-blue-dk: #3F5E71;
+  --bag-red: #B23A3A;
+  --bag-ink: #23303A;
+  --bag-gray: #5A6770;
+  --bag-line: #E1E5E8;
+  --bag-panel: #F2F4F5;
+}
+
+body{
+  background:#FFFFFF !important;
+  color:var(--bag-ink) !important;
+  font-family:"Inter", system-ui, -apple-system, sans-serif !important;
+}
+
+h1,h2,h3,.section-title,.group-head,.hero__content h1{
+  font-family:"PT Serif", Georgia, serif !important;
+  color:var(--bag-ink) !important;
+  font-weight:700 !important;
+  letter-spacing:-0.01em !important;
+}
+
+.eyebrow,.group-kicker,.card__tag,.nav__links a,.footer__links a{
+  font-family:"Inter", sans-serif !important;
+  text-transform:uppercase !important;
+  letter-spacing:0.12em !important;
+  font-weight:600 !important;
+  font-size:0.72rem !important;
+}
+.eyebrow,.group-kicker{ color:var(--bag-blue) !important; }
+
+.accent{ color:var(--bag-red) !important; }
+
+/* Logo — substantially bigger */
+.nav__brand img{ height:120px !important; width:auto !important; }
+.footer__brand img{ height:96px !important; width:auto !important; }
+
+/* Nav */
+.nav{ background:#FFFFFF !important; border-bottom:1px solid var(--bag-line) !important; }
+.nav__links a{ color:var(--bag-ink) !important; }
+.nav__links a:hover,.nav__links a.active{ color:var(--bag-red) !important; }
+
+/* Hero h1 in serif, refined size */
+.hero__content h1{ font-size:clamp(2.4rem,4.4vw,3.6rem) !important; line-height:1.08 !important; }
+.hero__sub{ color:var(--bag-gray) !important; font-family:"Inter",sans-serif !important; }
+
+/* Globe — much more prominent */
+.hero{ min-height:88vh !important; }
+.hero__canvas{ width:min(60vw,1000px) !important; max-width:1000px !important; }
+#hero-canvas{ width:100% !important; max-width:1000px !important; opacity:1 !important; }
+
+/* Buttons */
+.btn{ border-radius:4px !important; font-family:"Inter",sans-serif !important; text-transform:uppercase !important; letter-spacing:0.08em !important; font-size:0.78rem !important; font-weight:600 !important; padding:15px 30px !important; transition:all .2s ease !important; }
+.btn--primary{ background:var(--bag-blue) !important; border:1px solid var(--bag-blue) !important; color:#fff !important; }
+.btn--primary:hover{ background:var(--bag-blue-dk) !important; border-color:var(--bag-blue-dk) !important; }
+.btn--ghost{ background:transparent !important; border:1px solid var(--bag-blue) !important; color:var(--bag-blue) !important; }
+.btn--ghost:hover{ background:var(--bag-blue) !important; color:#fff !important; }
+
+/* Cards / panels */
+.card,.serve-card,.step{ background:#FFFFFF !important; border:1px solid var(--bag-line) !important; border-radius:6px !important; }
+.card__icon,.num{ color:var(--bag-blue) !important; }
+.group-kicker{ color:var(--bag-blue) !important; }
+
+/* Section dividers / kickers */
+.line-divider{ background:var(--bag-line) !important; }
+.section-title .accent{ color:var(--bag-red) !important; }
+
+/* CTA band — steel blue */
+.cta-band{ background:var(--bag-blue) !important; color:#fff !important; }
+.cta-band h2,.cta-band h3{ color:#fff !important; }
+
+/* Footer light */
+.footer{ background:var(--bag-panel) !important; color:var(--bag-ink) !important; border-top:1px solid var(--bag-line) !important; }
+.footer__links a{ color:var(--bag-gray) !important; }
+.footer__links a:hover{ color:var(--bag-red) !important; }
+
+/* Contained media bands (no grainy full-bleed) */
+.media-band__bg{ object-fit:cover !important; }
