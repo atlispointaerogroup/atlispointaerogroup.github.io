@@ -725,3 +725,102 @@ h1,h2,h3,.section-title,.group-head,.hero__content h1{
 }
 /* subtle white veil behind text so any globe bleed doesn't muddy it */
 .hero__content h1, .hero__content .hero__sub{ position:relative; }
+
+
+/* ===================================================================
+   v8 OVERRIDE — PURE BLACK & WHITE, big logo, globe removed, new hero
+   (this block intentionally last so it wins the cascade)
+   =================================================================== */
+
+/* ---- Monochrome palette: neutralize every brand color ---- */
+:root{
+  --bag-blue: #111111;
+  --bag-blue-deep: #2a2a2a;
+  --bag-blue-dk: #000000;
+  --bag-red: #111111;
+  --bag-ink: #0a0a0a;
+  --bag-gray: #555555;
+  --bag-line: #e2e2e2;
+  --bag-panel: #f4f4f4;
+}
+
+/* base */
+body{ background:#FFFFFF !important; color:#0a0a0a !important; }
+h1,h2,h3,.section-title,.group-head,.hero__content h1{ color:#0a0a0a !important; }
+
+/* kickers / eyebrows / labels -> black */
+.eyebrow,.group-kicker,.card__tag,.accent,.section-title .accent{ color:#0a0a0a !important; }
+
+/* nav */
+.nav{ background:#FFFFFF !important; border-bottom:1px solid #e6e6e6 !important; }
+.nav__links a{ color:#0a0a0a !important; }
+.nav__links a:hover,.nav__links a.active{ color:#000000 !important; }
+.nav__links a.active{ border-bottom:2px solid #000 !important; }
+
+/* LOGO — 2-3x bigger */
+.nav__brand img{ height:260px !important; width:auto !important; }
+.footer__brand img{ height:150px !important; width:auto !important; }
+/* let the taller logo breathe without forcing a huge nav bar */
+.nav{ padding-top:6px !important; padding-bottom:6px !important; }
+.nav__brand img{ margin:-70px 0 !important; }
+
+/* buttons -> black & white */
+.btn--primary,.nav__cta{ background:#0a0a0a !important; border:1px solid #0a0a0a !important; color:#FFFFFF !important; }
+.btn--primary:hover,.nav__cta:hover{ background:#333333 !important; border-color:#333333 !important; color:#fff !important; }
+.btn--ghost{ background:transparent !important; border:1px solid #0a0a0a !important; color:#0a0a0a !important; }
+.btn--ghost:hover{ background:#0a0a0a !important; color:#fff !important; }
+
+/* cards / panels -> white with gray borders, black icons/numbers */
+.card,.serve-card,.step{ background:#FFFFFF !important; border:1px solid #e2e2e2 !important; }
+.card__icon,.num{ color:#0a0a0a !important; }
+.serve-card .group-kicker, .group-kicker{ color:#0a0a0a !important; }
+
+/* dividers */
+.line-divider,.section-title .accent{ background:#e2e2e2 !important; }
+
+/* CTA band -> solid black */
+.cta-band{ background:#0a0a0a !important; color:#FFFFFF !important; }
+.cta-band h2,.cta-band h3,.cta-band .eyebrow{ color:#FFFFFF !important; }
+.cta-band .btn--ghost{ border-color:#FFFFFF !important; color:#FFFFFF !important; }
+.cta-band .btn--ghost:hover{ background:#FFFFFF !important; color:#0a0a0a !important; }
+
+/* "From first conversation" dark tactical panel -> neutral charcoal (no blue tint) */
+.media-band, .media-band__bg, .media-band__content{ background:#141414 !important; }
+.media-band *{ color:#FFFFFF !important; }
+.media-band .group-kicker, .media-band .eyebrow{ color:#bdbdbd !important; }
+
+/* footer */
+.footer{ background:#f4f4f4 !important; color:#0a0a0a !important; border-top:1px solid #e2e2e2 !important; }
+.footer__links a{ color:#444 !important; }
+.footer__links a:hover{ color:#000 !important; }
+
+/* ---- HERO: remove globe, clean B&W ---- */
+#hero-canvas, .hero__canvas, .hero__scanline, .hero__hud, .hero__poster, .hero__scrim{ display:none !important; }
+.hero{
+  background:#FFFFFF !important;
+  min-height:78vh !important;
+  display:flex !important;
+  align-items:center !important;
+  border-bottom:1px solid #ececec !important;
+}
+.hero__content{
+  max-width:980px !important;
+  z-index:1 !important;
+  padding:64px 0 !important;
+}
+.hero__content h1{
+  font-size:clamp(2.6rem,5.4vw,4.6rem) !important;
+  line-height:1.05 !important;
+  color:#0a0a0a !important;
+}
+.hero__content h1 .accent{ color:#0a0a0a !important; }
+.hero__sub{ color:#444 !important; max-width:620px !important; }
+/* thin monochrome rule motif above the headline */
+.hero__content::before{
+  content:"" !important;
+  display:block !important;
+  width:64px !important;
+  height:3px !important;
+  background:#0a0a0a !important;
+  margin-bottom:28px !important;
+}
