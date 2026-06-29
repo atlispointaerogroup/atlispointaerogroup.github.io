@@ -95,6 +95,7 @@
 
   /* ---------- Hero: light tactical globe with flight routes ---------- */
   function initHero3D() {
+    return; /* v8: globe disabled, B&W static hero */
     var canvas = document.getElementById("hero-canvas");
     var hero = document.querySelector(".hero");
     if (!canvas) return;
