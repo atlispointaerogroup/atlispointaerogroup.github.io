@@ -849,3 +849,24 @@ h1,h2,h3,.section-title,.group-head,.hero__content h1{ color:#0a0a0a !important;
 /* neutralize blue-tinted body grays to pure neutral gray */
 .hero__sub, .section-intro, .section-intro p, .card p, .serve-card p, .step p{ color:#555555 !important; }
 .media-band__content p, .media-band p{ color:#cfcfcf !important; }
+
+
+/* ===================================================================
+   v8.3 FIX — final B&W cleanup: tag chips, links, all body grays
+   =================================================================== */
+.card__tag{ background:#f0f0f0 !important; color:#0a0a0a !important; border:1px solid #e2e2e2 !important; }
+/* every link defaults to ink, hover to black */
+a{ color:#0a0a0a !important; }
+a:hover{ color:#000000 !important; }
+.nav__cta, .nav__cta:hover{ color:#FFFFFF !important; }
+.cta-band a, .cta-band .btn--ghost{ color:#FFFFFF !important; }
+.media-band a, .media-band *{ color:#FFFFFF !important; }
+.btn--primary, .btn--primary:hover{ color:#FFFFFF !important; }
+/* neutral grays everywhere for secondary text */
+.hero__sub, .section-intro, .section-intro p, .card p, .serve-card p, .step p,
+.footer__links, .footer__links a, .footer__meta, .footer__brand,
+p, li, span:not(.card__tag):not(.num){ color:#444444 !important; }
+/* but keep headings + strong elements ink-black */
+h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-kicker,.card__tag{ color:#0a0a0a !important; }
+.media-band h1,.media-band h2,.media-band h3,.cta-band h1,.cta-band h2,.cta-band h3{ color:#FFFFFF !important; }
+.media-band p,.media-band .group-kicker,.media-band .eyebrow{ color:#cfcfcf !important; }
