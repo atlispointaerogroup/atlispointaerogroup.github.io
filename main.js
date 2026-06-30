@@ -240,3 +240,20 @@
   if(document.readyState==="loading"){ document.addEventListener("DOMContentLoaded", boot); }
   else { boot(); }
 })();
+
+
+/* Hero crossfade carousel: cycle through all hero slides */
+(function(){
+  var bg=document.querySelector(".hero.hero--image .hero__bg");
+  if(!bg) return;
+  var slides=Array.prototype.slice.call(bg.querySelectorAll(".hero__slide"));
+  if(slides.length<2) return;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce) return;
+  var i=0;
+  setInterval(function(){
+    slides[i].classList.remove("is-active");
+    i=(i+1)%slides.length;
+    slides[i].classList.add("is-active");
+  }, 5000);
+})();
