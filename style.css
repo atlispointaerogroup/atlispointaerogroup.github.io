@@ -1039,16 +1039,28 @@ h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-k
   z-index:0;
   overflow:hidden;
 }
-.hero.hero--image .hero__img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  filter:grayscale(1) contrast(1.06) brightness(0.82);
-  transform:scale(1.08);
+/* === Home hero crossfade carousel (full color per client request) === */
+.hero.hero--image .hero__slide{
+  position:absolute; inset:0; z-index:0;
   opacity:0;
+  transition:opacity 1.4s ease-in-out;
+}
+.hero.hero--image .hero__slide.is-active{ opacity:1; }
+.hero.hero--image .hero__img{
+  width:100%; height:100%;
+  object-fit:cover; display:block;
+  filter:none;
+  transform:scale(1.04);
+}
+/* page-load reveal: first slide fades+zooms in */
+.hero.hero--image .hero__slide.is-active .hero__img{
   animation:heroReveal 1.6s cubic-bezier(0.22,0.61,0.36,1) forwards;
 }
+@media (prefers-reduced-motion: reduce){
+  .hero.hero--image .hero__slide{ transition:none; }
+  .hero.hero--image .hero__slide.is-active .hero__img{ animation:none; transform:none; }
+}
+
 @keyframes heroReveal{
   0%{ opacity:0; transform:scale(1.12); }
   100%{ opacity:1; transform:scale(1.0); }
