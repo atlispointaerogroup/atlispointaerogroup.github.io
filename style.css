@@ -1187,7 +1187,7 @@ h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-k
 
 /* ===== Home split hero (full image on side, no crop, color, no loop) ===== */
 .hero.hero--split{
-  padding:64px 0 72px;
+  padding:170px 0 80px;
   overflow:hidden;
   border-bottom:1px solid rgba(0,0,0,0.08);
 }
@@ -1222,6 +1222,7 @@ h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-k
 @keyframes splitTextIn{ from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:none;} }
 @keyframes splitMediaIn{ from{opacity:0; transform:translateX(28px) scale(0.98);} to{opacity:1; transform:none;} }
 @media (max-width:860px){
+  .hero.hero--split{ padding:130px 0 56px; }
   .hero-split__grid{ grid-template-columns:1fr; gap:32px; }
   .hero-split__media{ order:-1; }
   .hero-split__img{ max-height:360px; margin:0 auto; }
