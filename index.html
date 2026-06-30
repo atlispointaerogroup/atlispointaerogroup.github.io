@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="AtlisPoint Aero Group — one partner for the aviation businesses and investors who own, operate, and finance aircraft. Advisory, transactions, capital, and full-lifecycle aircraft asset services worldwide.">
   <title>AtlisPoint Aero Group</title>
-  <link rel="icon" type="image/png" href="favicon.png?v=16">
+  <link rel="icon" type="image/png" href="favicon.png?v=17">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="style.css?v=17">
 </head>
 <body>
   <div class="scroll-progress" aria-hidden="true"></div>
@@ -29,21 +29,29 @@
   </header>
 
   <!-- ============ HERO ============ -->
-<section class="hero hero--image" id="home">
-        <div class="hero__bg" aria-hidden="true">
-          <img src="jet-global.jpg?v=16" alt="Business jet on the ramp" class="hero__img">
-        </div>
-        <div class="hero__overlay" aria-hidden="true"></div>
-        <div class="container hero__content">
-          <span class="eyebrow">AtlisPoint Aero Group</span>
-          <h1 class="accent">Advisory &amp; Aircraft Asset Services, Across the Lifecycle</h1>
-          <p class="hero__sub">Sale, acquisition, capital, and full-lifecycle asset support for FBOs, charter operators, flight departments, flight schools, lenders, and lessors worldwide.</p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="contact.html">Get in Touch</a>
-            <a class="btn btn--ghost" href="services.html">Learn More</a>
-          </div>
-        </div>
-      </section>
+<section class="hero hero--image">
+    <div class="hero__bg" data-slides="3">
+      <div class="hero__slide is-active" style="--i:0">
+        <img class="hero__img" src="jet-global.jpg?v=17" alt="AtlisPoint Aero Group aircraft" />
+      </div>
+      <div class="hero__slide" style="--i:1">
+        <img class="hero__img" src="hero-sunset-hangar.jpg?v=17" alt="AtlisPoint Aero Group aircraft" />
+      </div>
+      <div class="hero__slide" style="--i:2">
+        <img class="hero__img" src="piston-diamond.jpg?v=17" alt="AtlisPoint Aero Group aircraft" />
+      </div>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="container hero__content">
+      <span class="eyebrow">AtlisPoint Aero Group</span>
+      <h1 class="accent">Advisory &amp; Aircraft Asset Services, Across the Lifecycle</h1>
+      <p class="hero__sub">Sale, acquisition, capital, and full-lifecycle asset support for FBOs, charter operators, flight departments, flight schools, lenders, and lessors worldwide.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="contact.html">Get in Touch</a>
+        <a class="btn btn--ghost" href="services.html">Learn More</a>
+      </div>
+    </div>
+  </section>
 
   <hr class="line-divider">
 
@@ -144,6 +152,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="main.js?v=16" defer></script>
+  <script src="main.js?v=17" defer></script>
 </body>
 </html>
