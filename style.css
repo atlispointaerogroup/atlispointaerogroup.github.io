@@ -1279,6 +1279,6 @@ h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-k
   object-fit:contain;
   max-height:340px;
   height:auto;
-  width:100%;
+  max-width:640px; margin:0 auto;
   background:#f4f4f4;
 }
