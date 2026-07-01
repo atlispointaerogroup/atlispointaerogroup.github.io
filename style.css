@@ -1282,3 +1282,9 @@ h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-k
   max-width:640px; margin:0 auto;
   background:#f4f4f4;
 }
+
+
+/* Services page image — left, content flows right */
+.services-img{ float:left; width:48%; max-width:720px; height:auto; margin:0 32px 24px 0; border-radius:0; }
+.section#services .container::after{ content:""; display:block; clear:both; }
+@media (max-width:860px){ .services-img{ float:none; width:100%; max-width:100%; margin:0 0 24px 0; } }
