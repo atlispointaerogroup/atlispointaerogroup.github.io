@@ -1248,3 +1248,28 @@ h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-k
 @media (prefers-reduced-motion: reduce){
   .hero-split__text, .hero-split__media{ animation:none; opacity:1; transform:none; }
 }
+
+/* Interior page image banner */
+.page-banner{
+  padding:150px 0 20px;
+}
+.page-banner .container{
+  width:100%;
+}
+.page-banner__img{
+  display:block;
+  width:100%;
+  max-height:420px;
+  object-fit:cover;
+  border-radius:10px;
+  filter:none;
+  -webkit-filter:none;
+  animation:heroReveal .9s ease both;
+}
+@media (max-width:860px){
+  .page-banner{ padding:120px 0 12px; }
+  .page-banner__img{ max-height:260px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .page-banner__img{ animation:none; }
+}
