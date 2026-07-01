@@ -1273,3 +1273,12 @@ h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-k
 @media (prefers-reduced-motion: reduce){
   .page-banner__img{ animation:none; }
 }
+
+/* Full uncropped banner image variant */
+.page-banner__img--contain{
+  object-fit:contain;
+  max-height:none;
+  height:auto;
+  width:100%;
+  background:#f4f4f4;
+}
