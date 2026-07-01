@@ -1277,7 +1277,7 @@ h1,h2,h3,h4,.section-title,.group-head,.card h3,.serve-card h3,.eyebrow,.group-k
 /* Full uncropped banner image variant */
 .page-banner__img--contain{
   object-fit:contain;
-  max-height:none;
+  max-height:340px;
   height:auto;
   width:100%;
   background:#f4f4f4;
